@@ -158,6 +158,20 @@ export default {
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
+    // 5b. Redirect oversized source SVGs to locally optimized copies.
+    // DA rejects SVGs > 40KB. group 2106.svg is 51.4KB; a locally svgo-optimized
+    // copy (22.9KB) is committed at content/images/. Point the reference at it.
+    // Runs AFTER adjustImageUrls so the local path is not re-absolutized.
+    const OVERSIZED_SVG_MAP = {
+      'group 2106.svg': '/content/images/gallery-accent-2106.svg',
+      'group%202106.svg': '/content/images/gallery-accent-2106.svg',
+    };
+    main.querySelectorAll('img[src]').forEach((img) => {
+      const src = img.getAttribute('src') || '';
+      const key = Object.keys(OVERSIZED_SVG_MAP).find((k) => src.includes(k));
+      if (key) img.src = OVERSIZED_SVG_MAP[key];
+    });
+
     // 6. Generate sanitized path (root path "/" maps to "/index")
     const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, '').replace(/\.html$/, '');
     const path = WebImporter.FileUtils.sanitizePath(rawPath || '/index');

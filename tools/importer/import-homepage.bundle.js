@@ -355,6 +355,15 @@ var CustomImportScript = (() => {
       WebImporter.rules.createMetadata(main, document);
       WebImporter.rules.transformBackgroundImages(main, document);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
+      const OVERSIZED_SVG_MAP = {
+        "group 2106.svg": "/content/images/gallery-accent-2106.svg",
+        "group%202106.svg": "/content/images/gallery-accent-2106.svg"
+      };
+      main.querySelectorAll("img[src]").forEach((img) => {
+        const src = img.getAttribute("src") || "";
+        const key = Object.keys(OVERSIZED_SVG_MAP).find((k) => src.includes(k));
+        if (key) img.src = OVERSIZED_SVG_MAP[key];
+      });
       const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, "").replace(/\.html$/, "");
       const path = WebImporter.FileUtils.sanitizePath(rawPath || "/index");
       return [{
