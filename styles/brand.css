@@ -1,0 +1,19 @@
+:root {
+  --heading-font-family: "Lora", georgia, "Times New Roman", serif;
+  --body-font-family: "Lato", -apple-system, "Helvetica Neue", arial, sans-serif;
+  --background-color: rgb(255 255 255);
+  --text-color: rgb(18 40 33);
+  --link-color: rgb(18 40 33);
+  --link-hover-color: rgb(18 40 33);
+  --accent-green: rgb(230 249 224);
+  --dark-green: rgb(18 40 33);
+  --section-padding: 120px;
+  --nav-height: 43px;
+  --content-max-width: 1200px;
+  --heading-size-xxl: 72px;
+  --heading-size-xl: 40px;
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}

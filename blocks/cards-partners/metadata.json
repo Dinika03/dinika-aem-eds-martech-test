@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-partners",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-23T19:39:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://remarketabletemplateaepdinika.netlify.app/",
+    "originPage": "Remarkable small-business marketing homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "logos",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "logo image per cell",
+    "buttonCount": 0,
+    "imageCount": 30
+  },
+  "reuseGuidance": {
+    "suitableFor": ["partner/brand logo walls", "client logo grids", "sponsor showcases"],
+    "notSuitableFor": ["content cards with text", "testimonials", "article lists"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-23T19:39:00.000Z"
+  }
+}

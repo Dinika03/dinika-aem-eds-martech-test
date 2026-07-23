@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-services",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-23T19:39:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://remarketabletemplateaepdinika.netlify.app/",
+    "originPage": "Remarkable small-business marketing homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "image/icon + title + description",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": ["service grids", "feature highlights with icons", "product/benefit tiles"],
+    "notSuitableFor": ["text-only card lists", "logo grids", "testimonials"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-23T19:39:00.000Z"
+  }
+}

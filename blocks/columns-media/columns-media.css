@@ -1,0 +1,101 @@
+/* columns-media: two-column text + image block
+   Source: section.home-improve div.home-tabs (home-content2 split)
+   - desktop: flex row, gap 64px, align-items center; image column wider than text
+   - text column: heading + body copy + pill CTA
+*/
+
+.columns-media > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* text column */
+.columns-media > div > div {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* image column */
+.columns-media > div > .columns-media-img-col {
+  order: 0;
+}
+
+.columns-media img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+/* typography (from source computed styles) */
+.columns-media h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 41.4px;
+  color: var(--text-color);
+}
+
+.columns-media p {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+/* space above the CTA (source: 48px gap between text group and button) */
+.columns-media > div > div > p.button-container,
+.columns-media > div > div > p:last-child {
+  margin-top: 48px;
+}
+
+/* CTA pill (matches brand button; source: accent-green bg, 46px radius, 16px 32px).
+   The authored CTA is a standalone <p><a>; EDS may or may not add .button, so
+   style both the decorated .button and the bare standalone link. */
+.columns-media a.button:any-link,
+.columns-media > div > div > p:last-child > a:only-child:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.columns-media a.button:any-link:hover,
+.columns-media > div > div > p:last-child > a:only-child:any-link:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .columns-media > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+  }
+
+  /* text column ~45%, image column ~55% (source 528 : 640) */
+  .columns-media > div > div {
+    flex: 0 1 45%;
+    order: unset;
+  }
+
+  .columns-media > div > .columns-media-img-col {
+    flex: 0 1 55%;
+    order: unset;
+  }
+}

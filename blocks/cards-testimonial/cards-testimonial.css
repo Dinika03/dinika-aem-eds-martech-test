@@ -1,0 +1,95 @@
+/* cards-testimonial -- testimonials on a dark-green accent band.
+   Source is a centered testimonial carousel (circular avatar, centered quote,
+   name + company with a short divider). EDS decorates rows into ul > li, where
+   each li holds an optional .cards-testimonial-card-image (circular avatar) and
+   a .cards-testimonial-card-body (quote + name/company). */
+
+.cards-testimonial > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+}
+
+.cards-testimonial > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 600px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+/* circular avatar */
+.cards-testimonial .cards-testimonial-card-image {
+  line-height: 0;
+}
+
+.cards-testimonial .cards-testimonial-card-image picture,
+.cards-testimonial .cards-testimonial-card-image img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* text body */
+.cards-testimonial .cards-testimonial-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+}
+
+/* empty first cell (cards without an avatar) collapses */
+.cards-testimonial .cards-testimonial-card-body:empty {
+  display: none;
+}
+
+/* quote text (first paragraph in the body) */
+.cards-testimonial .cards-testimonial-card-body p:first-child {
+  margin: 0;
+  max-width: 600px;
+  color: rgb(255 255 255);
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* name + company (last paragraph) with divider above */
+.cards-testimonial .cards-testimonial-card-body p:last-child {
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid rgb(255 255 255);
+  color: rgb(255 255 255);
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* when the body only has one paragraph, don't draw a divider on the quote */
+.cards-testimonial .cards-testimonial-card-body p:first-child:last-child {
+  padding-top: 0;
+  border-top: 0;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+}
+
+@media (width >= 900px) {
+  .cards-testimonial > ul {
+    gap: 80px;
+  }
+}

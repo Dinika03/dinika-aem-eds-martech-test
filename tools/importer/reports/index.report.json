@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://remarketabletemplateaepdinika.netlify.app/",
+  "path": "index",
+  "timestamp": "2026-07-23T20:36:24.277Z",
+  "title": "Remarkable template",
+  "template": "homepage",
+  "blocks": [
+    "hero-intro",
+    "columns-media",
+    "cards-services",
+    "cards-testimonial",
+    "cards-partners",
+    "cards-articles",
+    "columns-gallery"
+  ]
+}

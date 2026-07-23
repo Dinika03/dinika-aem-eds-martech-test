@@ -1,0 +1,10 @@
+{
+  "type": "doc",
+  "sites": {
+    "dinika-aem-eds-martech-test": {
+      "previewOrg": "dinika03",
+      "previewSite": "dinika-aem-eds-martech-test",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

@@ -10,6 +10,9 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toClassName,
+  toCamelCase,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,14 +146,69 @@ function decorateButtons(main) {
 }
 
 /**
+ * Move given attributes from one element to another.
+ * @param {Element} from source element
+ * @param {Element} to target element
+ * @param {string[]} [attributes] list of attribute names to move (defaults to all)
+ */
+export function moveAttributes(from, to, attributes) {
+  const attrs = attributes || [...from.attributes].map(({ nodeName }) => nodeName);
+  attrs.forEach((attr) => {
+    const value = from.getAttribute(attr);
+    if (value) {
+      to.setAttribute(attr, value);
+      from.removeAttribute(attr);
+    }
+  });
+}
+
+/**
+ * Move instrumentation attributes from one element to another.
+ * @param {Element} from source element
+ * @param {Element} to target element
+ */
+export function moveInstrumentation(from, to) {
+  moveAttributes(
+    from,
+    to,
+    [...from.attributes]
+      .map(({ nodeName }) => nodeName)
+      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+  );
+}
+
+/**
+ * Applies section metadata: reads each `.section-metadata` block, converts its
+ * key/value rows into section classes (e.g. style=accent → `.accent`) or data
+ * attributes, then removes the block.
+ * @param {Element} main The main element
+ */
+function processSectionMetadata(main) {
+  main.querySelectorAll('.section-metadata').forEach((sectionMeta) => {
+    const section = sectionMeta.closest('.section');
+    if (!section) return;
+    const meta = readBlockConfig(sectionMeta);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        meta.style.split(',').forEach((s) => section.classList.add(toClassName(s.trim())));
+      } else {
+        section.dataset[toCamelCase(key)] = meta[key];
+      }
+    });
+    (sectionMeta.parentElement.classList.contains('section-metadata-wrapper')
+      ? sectionMeta.parentElement : sectionMeta).remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  processSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

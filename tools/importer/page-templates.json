@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "projectType": "doc"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://remarketabletemplateaepdinika.netlify.app/"
+      ],
+      "representativeUrl": "https://remarketabletemplateaepdinika.netlify.app/",
+      "coverageGaps": [],
+      "description": "Marketing homepage for the Remarkable small-business template: header/nav, hero, mission statements, improve/services sections, testimonials, partners logos, article cards, CTA banner, gallery, newsletter signup, and footer.",
+      "blocks": [
+        {
+          "name": "hero-intro",
+          "instances": [
+            "section.home-hero",
+            "header.home-hero"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "section.home-improve div.home-tabs"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            "section.home-services1 div.home-cards"
+          ]
+        },
+        {
+          "name": "cards-testimonial",
+          "instances": [
+            "section.home-testimonials div.home-container2"
+          ]
+        },
+        {
+          "name": "cards-partners",
+          "instances": [
+            "section.home-partners div.home-partners-desktop"
+          ]
+        },
+        {
+          "name": "cards-articles",
+          "instances": [
+            "section.home-services2 div.home-sections"
+          ]
+        },
+        {
+          "name": "columns-gallery",
+          "instances": [
+            "section.home-galleries div.home-gallery-desktop"
+          ]
+        },
+        {
+          "name": "section-testimonials",
+          "instances": [
+            "section.home-testimonials"
+          ],
+          "section": "accent"
+        },
+        {
+          "name": "section-banner",
+          "instances": [
+            "section.home-banner"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc2",
+          "name": "hero",
+          "selector": "section.home-hero",
+          "style": null,
+          "blocks": [
+            "hero-intro"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "mission1",
+          "selector": "section.home-mission1",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission1 h2.home-text15",
+            "section.home-mission1 a.home-navlink4"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "improve",
+          "selector": "section.home-improve",
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": [
+            "section.home-improve div.home-heading1"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "services1",
+          "selector": "section.home-services1",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": [
+            "section.home-services1 h2.home-text25"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "testimonials",
+          "selector": "section.home-testimonials",
+          "style": "accent",
+          "blocks": [
+            "cards-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "partners",
+          "selector": "section.home-partners",
+          "style": null,
+          "blocks": [
+            "cards-partners"
+          ],
+          "defaultContent": [
+            "section.home-partners div.home-content4"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "services2",
+          "selector": "section.home-services2",
+          "style": null,
+          "blocks": [
+            "cards-articles"
+          ],
+          "defaultContent": [
+            "section.home-services2 div.home-heading2"
+          ]
+        },
+        {
+          "id": "rc9",
+          "name": "banner",
+          "selector": "section.home-banner",
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "section.home-banner div.home-container5"
+          ]
+        },
+        {
+          "id": "rc10",
+          "name": "mission2",
+          "selector": "section.home-mission2",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission2 div.home-content5"
+          ]
+        },
+        {
+          "id": "rc11",
+          "name": "galleries",
+          "selector": "section.home-galleries",
+          "style": null,
+          "blocks": [
+            "columns-gallery"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc12",
+          "name": "mission3",
+          "selector": "section.home-mission3",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission3 div.home-content6"
+          ]
+        },
+        {
+          "id": "rc13",
+          "name": "newsletter",
+          "selector": "section.home-newsletter",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-newsletter div.home-header8",
+            "section.home-newsletter div.home-content7"
+          ]
+        }
+      ]
+    }
+  ]
+}
