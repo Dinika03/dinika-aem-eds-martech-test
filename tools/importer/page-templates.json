@@ -202,6 +202,150 @@
           ]
         }
       ]
+    },
+    {
+      "name": "our-offer-page",
+      "urls": [
+        "https://remarketabletemplateaepdinika.netlify.app/our-offer-page"
+      ],
+      "representativeUrl": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+      "coverageGaps": [],
+      "description": "Offers/pricing landing page: hero with image collage, feature lists (services + website design), CTA banners, pricing plans, steps/process, testimonials grid, and contact cards.",
+      "blocks": [
+        {
+          "name": "hero-intro",
+          "instances": [
+            "hero17-wrapper"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            "features24-wrapper",
+            "features25-wrapper"
+          ]
+        },
+        {
+          "name": "cards-pricing",
+          "instances": [
+            "a.our-offer-page-navlink4"
+          ]
+        },
+        {
+          "name": "columns-steps",
+          "instances": [
+            "steps2-wrapper"
+          ]
+        },
+        {
+          "name": "cards-testimonial",
+          "instances": [
+            "testimonial17-wrapper"
+          ]
+        },
+        {
+          "name": "cards-contact",
+          "instances": [
+            "contact10-wrapper"
+          ]
+        },
+        {
+          "name": "section-cta",
+          "instances": [
+            "a.our-offer-page-navlink3"
+          ],
+          "section": "accent"
+        },
+        {
+          "name": "section-testimonials",
+          "instances": [
+            "testimonial17-wrapper"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero",
+          "selector": "hero17-wrapper",
+          "style": null,
+          "blocks": [
+            "hero-intro"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "features1",
+          "selector": "features24-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "cta",
+          "selector": "a.our-offer-page-navlink3",
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "a.our-offer-page-navlink3"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "features2",
+          "selector": "features25-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "pricing",
+          "selector": "a.our-offer-page-navlink4",
+          "style": null,
+          "blocks": [
+            "cards-pricing"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "steps",
+          "selector": "steps2-wrapper",
+          "style": null,
+          "blocks": [
+            "columns-steps"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "testimonials",
+          "selector": "testimonial17-wrapper",
+          "style": "accent",
+          "blocks": [
+            "cards-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc8",
+          "name": "contact",
+          "selector": "contact10-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-contact"
+          ],
+          "defaultContent": []
+        }
+      ]
     }
   ]
 }

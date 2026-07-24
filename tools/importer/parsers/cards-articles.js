@@ -39,9 +39,10 @@ export default function parse(element, { document }) {
     if (cta) {
       contentCell.push(cta);
     } else if (ctaButton) {
-      // Convert the "Read more" button into an authorable CTA link
+      // Convert the "Read more" button into an authorable CTA link.
+      // Source buttons have no href; point them to the offers page.
       const link = document.createElement('a');
-      link.href = '#';
+      link.href = '/our-offer-page';
       link.textContent = (ctaButton.textContent || 'Read more').trim();
       contentCell.push(link);
     }

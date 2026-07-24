@@ -24,8 +24,8 @@
     "notSuitableFor": ["logo grids", "article lists", "service/feature grids"]
   },
   "usage": {
-    "pagesUsing": ["/index"],
-    "reuseCount": 1,
-    "lastUsed": "2026-07-23T19:39:00.000Z"
+    "pagesUsing": ["/index", "/our-offer-page"],
+    "reuseCount": 2,
+    "lastUsed": "2026-07-24T13:56:00.000Z"
   }
 }

@@ -163,7 +163,7 @@ var CustomImportScript = (() => {
         contentCell.push(cta);
       } else if (ctaButton) {
         const link = document.createElement("a");
-        link.href = "#";
+        link.href = "/our-offer-page";
         link.textContent = (ctaButton.textContent || "Read more").trim();
         contentCell.push(link);
       }

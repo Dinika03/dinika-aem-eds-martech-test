@@ -24,8 +24,8 @@
     "notSuitableFor": ["dark full-bleed hero banners", "content-dense above-the-fold sections"]
   },
   "usage": {
-    "pagesUsing": ["/index"],
-    "reuseCount": 1,
-    "lastUsed": "2026-07-23T19:39:00.000Z"
+    "pagesUsing": ["/index", "/our-offer-page"],
+    "reuseCount": 2,
+    "lastUsed": "2026-07-24T13:56:00.000Z"
   }
 }

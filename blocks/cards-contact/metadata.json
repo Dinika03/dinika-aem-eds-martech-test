@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-contact",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-24T13:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+    "originPage": "Our Offer page - contact/locations section",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "contact",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + location title + address + 'Get directions' CTA link",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "location/office cards",
+      "contact cards with an image, address and directions link",
+      "store finders and branch listings"
+    ],
+    "notSuitableFor": [
+      "pricing tiles",
+      "testimonials",
+      "text-only article lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/our-offer-page"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T13:56:00.000Z"
+  }
+}
