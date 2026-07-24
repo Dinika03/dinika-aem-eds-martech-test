@@ -4,27 +4,86 @@
    each li holds an optional .cards-testimonial-card-image (circular avatar) and
    a .cards-testimonial-card-body (quote + name/company). */
 
+.cards-testimonial {
+  position: relative;
+}
+
 .cards-testimonial > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 64px;
 }
 
+/* carousel: one testimonial at a time */
 .cards-testimonial > ul > li {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   max-width: 600px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   border: 0;
   background: transparent;
   text-align: center;
+}
+
+.cards-testimonial > ul > li.active {
+  display: flex;
+}
+
+/* prev/next arrow controls (bottom-right, matching source) */
+.cards-testimonial-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.cards-testimonial-controls button {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgb(120 140 120);
+  color: var(--dark-green);
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.cards-testimonial-controls button::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: var(--dark-green);
+  mask: no-repeat center / contain;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M12 4l-1.4 1.4L16.2 11H4v2h12.2l-5.6 5.6L12 20l8-8z"/></svg>');
+}
+
+.cards-testimonial-controls .cards-testimonial-prev::before {
+  transform: scaleX(-1);
+}
+
+.cards-testimonial-controls .cards-testimonial-next {
+  background-color: var(--accent-green);
+}
+
+.cards-testimonial-controls button:hover {
+  background-color: var(--accent-green);
+}
+
+@media (width >= 900px) {
+  .cards-testimonial-controls {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+  }
 }
 
 /* circular avatar */
@@ -88,8 +147,3 @@
   font-weight: 400;
 }
 
-@media (width >= 900px) {
-  .cards-testimonial > ul {
-    gap: 80px;
-  }
-}

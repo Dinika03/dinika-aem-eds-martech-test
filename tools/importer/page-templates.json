@@ -194,7 +194,7 @@
           "id": "rc13",
           "name": "newsletter",
           "selector": "section.home-newsletter",
-          "style": null,
+          "style": "newsletter",
           "blocks": [],
           "defaultContent": [
             "section.home-newsletter div.home-header8",

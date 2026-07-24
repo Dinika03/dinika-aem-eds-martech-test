@@ -1,20 +1,104 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
 }
 
+/* top divider line above the footer (matches source) */
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 48px 24px;
+  border-top: 1px solid var(--text-color);
 }
 
 footer .footer p {
-  margin: 0;
+  margin: 0 0 16px;
 }
 
+/* two-column layout: brand/info left, link columns right */
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 64px;
+    padding: 64px 32px;
   }
+}
+
+/* brand + contact column */
+footer .footer-brand {
+  flex: 1 1 auto;
+  max-width: 480px;
+}
+
+/* brand wordmark (first paragraph: mark + "Remarkable") */
+footer .footer-brand p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+footer .footer-brand p:first-child img {
+  width: 16px;
+  height: auto;
+}
+
+/* description */
+footer .footer-brand p:nth-child(2) {
+  max-width: 460px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* email + phone rows with icons */
+footer .footer-brand p:nth-child(3),
+footer .footer-brand p:nth-child(4) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+footer .footer-brand p:nth-child(3) img,
+footer .footer-brand p:nth-child(4) img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* copyright */
+footer .footer-brand p:last-child {
+  margin-top: 8px;
+  color: var(--text-color);
+}
+
+/* link columns */
+footer .footer-links .default-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+}
+
+footer .footer-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer .footer-links a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .footer-links a:hover {
+  text-decoration: underline;
 }

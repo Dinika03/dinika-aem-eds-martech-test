@@ -188,6 +188,39 @@ button.button:hover {
   color: var(--accent-green);
 }
 
+/* Standalone default-content CTA links (a <p> whose only child is a link)
+   render as pill buttons, matching the source's "Book a call" /
+   "Learn about our mission" CTAs. */
+main .default-content-wrapper p:has(> a:only-child:any-link) {
+  margin: 12px 0;
+}
+
+main .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+}
+
+main .default-content-wrapper p:has(> a:only-child) > a:any-link:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+/* On accent sections the pill stays light on the dark band */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.accent .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+}
+
 a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
@@ -334,6 +367,7 @@ main .section.accent h3,
 main .section.accent h4,
 main .section.accent h5,
 main .section.accent h6,
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.accent p {
   color: rgb(255 255 255);
 }
@@ -343,4 +377,62 @@ main .section.dark {
   color: rgb(255 255 255);
   margin: 0;
   padding: 80px 0;
+}
+
+/* Newsletter signup section (default content: heading + text + email row + note) */
+main .section.newsletter {
+  padding: 80px 0;
+}
+
+main .section.newsletter .default-content-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main .section.newsletter h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+/* "Enter your email" label + arrow icon form a pill input row */
+main .section.newsletter .default-content-wrapper p:nth-of-type(2) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 420px;
+  margin: 32px auto 8px;
+  padding: 8px 8px 8px 24px;
+  border-radius: 46px;
+  background-color: rgb(240 240 238);
+  color: rgb(90 90 90);
+  text-align: left;
+}
+
+/* the arrow icon becomes a dark circular submit button */
+main .section.newsletter .default-content-wrapper p:nth-of-type(3) {
+  display: none;
+}
+
+main .section.newsletter .default-content-wrapper p:nth-of-type(2)::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--dark-green);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M7 17L17 7M17 7H9M17 7v8"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+/* small print disclaimer */
+main .section.newsletter .default-content-wrapper p:last-child {
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: rgb(90 90 90);
+  text-align: left;
 }

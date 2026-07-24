@@ -274,7 +274,7 @@ var CustomImportScript = (() => {
       { id: "rc10", name: "mission2", selector: "section.home-mission2", style: null, blocks: [], defaultContent: ["section.home-mission2 div.home-content5"] },
       { id: "rc11", name: "galleries", selector: "section.home-galleries", style: null, blocks: ["columns-gallery"], defaultContent: [] },
       { id: "rc12", name: "mission3", selector: "section.home-mission3", style: null, blocks: [], defaultContent: ["section.home-mission3 div.home-content6"] },
-      { id: "rc13", name: "newsletter", selector: "section.home-newsletter", style: null, blocks: [], defaultContent: ["section.home-newsletter div.home-header8", "section.home-newsletter div.home-content7"] }
+      { id: "rc13", name: "newsletter", selector: "section.home-newsletter", style: "newsletter", blocks: [], defaultContent: ["section.home-newsletter div.home-header8", "section.home-newsletter div.home-content7"] }
     ]
   };
   var parsers = {
