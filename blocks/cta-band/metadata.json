@@ -1,0 +1,40 @@
+{
+  "variantName": "cta-band",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-24T19:59:03.028Z",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/",
+    "originPage": "EDC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "compact",
+    "purpose": "cta",
+    "imagePattern": "noimg",
+    "description": "Highlighted full-width CTA band (solid accent color) with a heading and CTA; whole band clickable (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "heading + CTA link (whole band linked)",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width linked CTA bands",
+      "solution-finder / triage call-to-action strips"
+    ],
+    "notSuitableFor": [
+      "card grids",
+      "hero banners with imagery"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/edc-test-page"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T19:59:03.028Z"
+  }
+}

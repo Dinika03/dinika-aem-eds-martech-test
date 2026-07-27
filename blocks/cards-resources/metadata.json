@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-resources",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-24T19:59:03.028Z",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/",
+    "originPage": "EDC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "icon",
+    "description": "Resource/tool cards with icon + heading + description + arrow link in a 3-up grid (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "icon + heading + description + arrow link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "resource/tool card grids with icons",
+      "3-up icon card layouts with links"
+    ],
+    "notSuitableFor": [
+      "image-forward tiles",
+      "text-only cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/edc-test-page"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T19:59:03.028Z"
+  }
+}

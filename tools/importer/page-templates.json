@@ -346,6 +346,163 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "edc-test-page",
+      "urls": [
+        "https://www.edc.ca/"
+      ],
+      "representativeUrl": "https://www.edc.ca/",
+      "coverageGaps": [],
+      "description": "EDC (Export Development Canada) homepage: promo bar, hero, support cards, insights tabs, solutions cards, solutions-finder CTA, resources cards, tailored-support cards. Imported to /edc-test-page.",
+      "blocks": [
+        {
+          "name": "hero-edc",
+          "instances": [
+            "div.top-banner-comp"
+          ]
+        },
+        {
+          "name": "cards-edc-support",
+          "instances": [
+            "div.knowledgeandresources:nth-of-type(2) section.knowledge-and-resources"
+          ]
+        },
+        {
+          "name": "tabs-insights",
+          "instances": [
+            "div.export-trends"
+          ]
+        },
+        {
+          "name": "cards-solutions",
+          "instances": [
+            "div.homepageproductcard"
+          ]
+        },
+        {
+          "name": "cta-band",
+          "instances": [
+            "section.c-triage-cta"
+          ]
+        },
+        {
+          "name": "cards-resources",
+          "instances": [
+            "div.knowledgeandresources:nth-of-type(6) section.knowledge-and-resources"
+          ]
+        },
+        {
+          "name": "cards-tiles",
+          "instances": [
+            "section.trade-expertise-highlights"
+          ]
+        },
+        {
+          "name": "section-promo",
+          "instances": [
+            "div.homepage-flag:nth-of-type(2)"
+          ],
+          "section": "promo-bar"
+        },
+        {
+          "name": "section-cta",
+          "instances": [
+            "section.c-triage-cta"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "promo",
+          "selector": "div.homepage-flag:nth-of-type(2)",
+          "style": "promo-bar",
+          "blocks": [],
+          "defaultContent": [
+            "div.homepage-flag:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "hero",
+          "selector": "div.top-banner-comp",
+          "style": null,
+          "blocks": [
+            "hero-edc"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "support",
+          "selector": "div.knowledgeandresources:nth-of-type(2)",
+          "style": null,
+          "blocks": [
+            "cards-edc-support"
+          ],
+          "defaultContent": [
+            "div.knowledgeandresources:nth-of-type(2) div.heading-wrapper"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "insights",
+          "selector": "div.export-trends",
+          "style": null,
+          "blocks": [
+            "tabs-insights"
+          ],
+          "defaultContent": [
+            "div.export-trends h2"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "solutions",
+          "selector": "div.homepageproductcard",
+          "style": null,
+          "blocks": [
+            "cards-solutions"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "finder",
+          "selector": "section.c-triage-cta",
+          "style": "accent",
+          "blocks": [
+            "cta-band"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "resources",
+          "selector": "div.knowledgeandresources:nth-of-type(6)",
+          "style": null,
+          "blocks": [
+            "cards-resources"
+          ],
+          "defaultContent": [
+            "div.knowledgeandresources:nth-of-type(6) div.heading-wrapper"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "tailored",
+          "selector": "section.trade-expertise-highlights",
+          "style": null,
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": [
+            "section.trade-expertise-highlights h2"
+          ]
+        }
+      ]
     }
   ]
 }

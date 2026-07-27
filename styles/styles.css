@@ -379,6 +379,66 @@ main .section.dark {
   padding: 80px 0;
 }
 
+/* EDC promo bar: thin full-width notice strip above the hero */
+main .section.promo-bar {
+  background-color: rgb(238 241 245);
+  margin: 0;
+  padding: 12px 0;
+}
+
+main .section.promo-bar > div {
+  padding: 0 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.promo-bar p {
+  margin: 0;
+  color: #003057;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Beat the global standalone-CTA pill rule (same shape + extra .promo-bar class). */
+/* stylelint-disable no-descending-specificity */
+main .section.promo-bar .default-content-wrapper p:has(> a:only-child) > a:any-link,
+main .section.promo-bar a:any-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: #d81a21;
+  font-weight: 700;
+  text-decoration: underline;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* When an accent section wraps a self-contained full-bleed band block
+   (EDC cta-band renders its own navy background), drop the section's own
+   band styling so the block bleeds edge-to-edge without a coloured margin. */
+main .section.accent:has(.cta-band) {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* EDC uses a sans-serif type system (not the Remarkable serif headings).
+   Scope sans-serif headings to the EDC-specific blocks on this page. */
+/* stylelint-disable no-descending-specificity */
+main .hero-edc h1,
+main .hero-edc h2,
+main .hero-edc h3,
+main .cards-edc-support h3,
+main .tabs-insights h3,
+main .cards-solutions h3,
+main .cta-band h2,
+main .cta-band h3,
+main .cards-resources h3,
+main .cards-tiles h3 {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+/* stylelint-enable no-descending-specificity */
+
 /* Newsletter signup section (default content: heading + text + email row + note) */
 main .section.newsletter {
   padding: 80px 0;

@@ -113,19 +113,26 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  // The EDC test page uses its own EDC-branded nav; every other page keeps
+  // the default Remarkable nav.
+  const isEdc = window.location.pathname.includes('edc-test-page');
+
   // load nav as fragment — try /content/nav first (local + this content tree),
   // then fall back to the nav metadata path or /nav (DA/EDS production).
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  let fragment = await loadFragment('/content/nav');
+  const localNav = isEdc ? '/content/edc-nav' : '/content/nav';
+  const prodNav = isEdc ? '/edc-nav' : navPath;
+  let fragment = await loadFragment(localNav);
   if (!fragment || !fragment.firstElementChild) {
-    fragment = await loadFragment(navPath);
+    fragment = await loadFragment(prodNav);
   }
 
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
+  if (isEdc) nav.classList.add('edc-nav');
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];

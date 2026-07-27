@@ -1,0 +1,40 @@
+{
+  "variantName": "tabs-insights",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-07-24T19:59:03.028Z",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/",
+    "originPage": "EDC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large",
+    "description": "JS-driven tabbed panel of article cards (Spotlight/Tariffs/Market knowledge) with pill-style tab chips (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "tab label + panel of 3 article cards + more link",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "interactive insight/article tab switchers",
+      "content grouped under tab chips"
+    ],
+    "notSuitableFor": [
+      "static content that does not need switching",
+      "accordion FAQ patterns"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/edc-test-page"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T19:59:03.028Z"
+  }
+}

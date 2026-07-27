@@ -338,3 +338,131 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+/* ===== EDC test page: EDC-branded header ===== */
+header nav.edc-nav {
+  --edc-text: rgb(29 29 29);
+  --edc-blue: rgb(26 101 178);
+
+  max-width: 1264px;
+  color: var(--edc-text);
+  font-family: var(--body-font-family);
+}
+
+@media (width >= 900px) {
+  header nav.edc-nav {
+    display: grid;
+    grid-template:
+      'brand tools' auto
+      'brand sections' auto / 1fr auto;
+    align-items: center;
+    gap: 8px 32px;
+    padding: 20px 24px;
+  }
+}
+
+/* EDC logo (always shown, no text wordmark) */
+header nav.edc-nav .nav-brand {
+  font-family: var(--body-font-family);
+}
+
+header nav.edc-nav .nav-brand img {
+  display: inline-block;
+  width: auto;
+  height: 40px;
+  margin: 0;
+}
+
+/* main nav: Solutions / Resources / About */
+header nav.edc-nav .nav-sections a:any-link {
+  color: var(--edc-text);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+header nav.edc-nav .nav-sections a:hover {
+  color: var(--edc-blue);
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  header nav.edc-nav .nav-sections ul {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+}
+
+/* utility row: Newsroom / Careers / Français / Contact Us */
+header nav.edc-nav .nav-tools {
+  grid-area: tools;
+}
+
+header nav.edc-nav .nav-tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+}
+
+header nav.edc-nav .nav-tools a:any-link {
+  color: var(--edc-text);
+  text-decoration: none;
+}
+
+header nav.edc-nav .nav-tools a:hover {
+  color: var(--edc-blue);
+  text-decoration: underline;
+}
+
+/* Contact Us renders as a blue pill CTA (last utility item) */
+header nav.edc-nav .nav-tools li:last-child a:any-link {
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: var(--edc-blue);
+  color: rgb(255 255 255);
+}
+
+header nav.edc-nav .nav-tools li:last-child a:hover {
+  background-color: rgb(20 80 145);
+  text-decoration: none;
+}
+
+/* Mobile: stack utility row below main nav inside the slide-in menu */
+@media (width < 900px) {
+  header nav.edc-nav .nav-tools {
+    display: none;
+    visibility: hidden;
+  }
+
+  header nav.edc-nav[aria-expanded='true'] .nav-tools {
+    display: block;
+    visibility: visible;
+    width: 100%;
+  }
+
+  header nav.edc-nav[aria-expanded='true'] .nav-tools ul {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  header nav.edc-nav[aria-expanded='true'] .nav-tools li {
+    border-top: 1px solid rgb(230 230 230);
+  }
+
+  header nav.edc-nav[aria-expanded='true'] .nav-tools a:any-link {
+    display: block;
+    padding: 16px 24px;
+  }
+
+  header nav.edc-nav[aria-expanded='true'] .nav-tools li:last-child a:any-link {
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--edc-text);
+  }
+}

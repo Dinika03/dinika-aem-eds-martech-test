@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-edc",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-24T19:59:03.028Z",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/",
+    "originPage": "EDC homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large",
+    "description": "Full-width photographic hero with light overlay, headline, paragraph and CTA button (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "background image + heading + paragraph + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners",
+      "campaign landing heroes with photographic backgrounds"
+    ],
+    "notSuitableFor": [
+      "text-only intros",
+      "minimal light heroes"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/edc-test-page"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T19:59:03.028Z"
+  }
+}
