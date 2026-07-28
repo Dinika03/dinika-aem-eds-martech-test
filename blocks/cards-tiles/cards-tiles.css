@@ -23,6 +23,13 @@
   align-items: flex-end;
 }
 
+/* whole card is a link; keep image + body in the li layout */
+.cards-tiles .cards-tiles-card-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}
+
 .cards-tiles .cards-tiles-card-image {
   position: absolute;
   inset: 0;

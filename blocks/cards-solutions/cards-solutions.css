@@ -29,6 +29,13 @@
   box-shadow: 0 4px 16px rgb(0 48 87 / 12%);
 }
 
+/* whole card is a link; keep icon + body in the li flex layout */
+.cards-solutions .cards-solutions-card-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}
+
 .cards-solutions .cards-solutions-card-image {
   flex: 0 0 48px;
   line-height: 0;

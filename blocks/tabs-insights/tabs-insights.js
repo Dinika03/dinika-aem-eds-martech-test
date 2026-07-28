@@ -1,6 +1,77 @@
 // eslint-disable-next-line import/no-unresolved
-import { toClassName } from '../../scripts/aem.js';
+import { toClassName, createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
+
+const CARD_LINK = 'https://main--dinika-aem-eds-martech-test--dinika03.aem.live/';
+
+/**
+ * Turn a panel's flat [picture, heading, picture, heading, …, more-link]
+ * sequence into linked article cards (image + heading + arrow) plus a
+ * trailing "More resources" link.
+ * @param {Element} content The panel content wrapper
+ */
+function decoratePanel(content) {
+  const cards = document.createElement('div');
+  cards.className = 'tabs-insights-cards';
+
+  let moreLink = null;
+  const nodes = [...content.children];
+  let pendingImage = null;
+
+  nodes.forEach((node) => {
+    const picture = node.querySelector('picture');
+    const anchor = node.querySelector('a');
+
+    if (picture) {
+      pendingImage = picture;
+      return;
+    }
+
+    if (node.tagName === 'H3') {
+      const card = document.createElement('a');
+      card.className = 'tabs-insights-card';
+      card.href = CARD_LINK;
+
+      if (pendingImage) {
+        const imgWrap = document.createElement('div');
+        imgWrap.className = 'tabs-insights-card-image';
+        imgWrap.append(pendingImage);
+        card.append(imgWrap);
+        pendingImage = null;
+      }
+
+      const foot = document.createElement('div');
+      foot.className = 'tabs-insights-card-foot';
+      const heading = document.createElement('h3');
+      heading.innerHTML = node.innerHTML;
+      const arrow = document.createElement('span');
+      arrow.className = 'tabs-insights-card-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      foot.append(heading, arrow);
+      card.append(foot);
+      cards.append(card);
+      return;
+    }
+
+    if (anchor) {
+      anchor.href = CARD_LINK;
+      moreLink = document.createElement('p');
+      moreLink.className = 'tabs-insights-more';
+      moreLink.append(anchor);
+    }
+  });
+
+  content.textContent = '';
+  content.append(cards);
+  if (moreLink) content.append(moreLink);
+
+  // optimize images now that they live in their final wrappers
+  content.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+}
 
 export default async function decorate(block) {
   // build tablist
@@ -26,7 +97,6 @@ export default async function decorate(block) {
     button.className = 'tabs-insights-tab';
     button.id = `tab-${id}`;
 
-    moveInstrumentation(tab.parentElement, tabpanel.lastElementChild);
     button.innerHTML = tab.innerHTML;
 
     button.setAttribute('aria-controls', `tabpanel-${id}`);
@@ -46,6 +116,10 @@ export default async function decorate(block) {
     tablist.append(button);
     tab.remove();
     moveInstrumentation(button.querySelector('p'), null);
+
+    // transform the remaining panel content into linked article cards
+    const content = tabpanel.firstElementChild;
+    if (content) decoratePanel(content);
   });
 
   block.prepend(tablist);

@@ -1,6 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+const CARD_LINK = 'https://main--dinika-aem-eds-martech-test--dinika03.aem.live/';
+
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
@@ -12,6 +14,12 @@ export default function decorate(block) {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-solutions-card-image';
       else div.className = 'cards-solutions-card-body';
     });
+    // whole card is a link
+    const link = document.createElement('a');
+    link.className = 'cards-solutions-card-link';
+    link.href = CARD_LINK;
+    while (li.firstChild) link.append(li.firstChild);
+    li.append(link);
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => {
