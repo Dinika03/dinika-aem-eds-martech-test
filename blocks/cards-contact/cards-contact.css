@@ -1,0 +1,93 @@
+/* cards-contact — location cards (image, title, address, "get directions" link)
+   Design extracted from source contact10 block computed styles. */
+
+.cards-contact > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.cards-contact > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* image: full-width, 16:9, rounded corners */
+.cards-contact .cards-contact-card-image {
+  width: 100%;
+  line-height: 0;
+}
+
+.cards-contact .cards-contact-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+/* body: stacked title / address / link, matches card gap */
+.cards-contact .cards-contact-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  width: 100%;
+}
+
+.cards-contact .cards-contact-card-body h3 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.cards-contact .cards-contact-card-body p {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* "Get directions" — pill text link */
+.cards-contact .cards-contact-card-body a:any-link {
+  display: inline-block;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  color: var(--link-color);
+  padding: 8px 24px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+}
+
+.cards-contact .cards-contact-card-body a:any-link:hover {
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  .cards-contact > ul {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .cards-contact > ul > li {
+    flex: 1;
+  }
+}

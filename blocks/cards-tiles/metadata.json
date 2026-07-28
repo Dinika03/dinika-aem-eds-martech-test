@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-tiles",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-24T19:59:03.028Z",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/",
+    "originPage": "EDC homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large",
+    "description": "Image-forward tiles with full-bleed photo and overlaid heading + description + arrow link, 3-up grid (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "background image + overlaid heading + description + arrow link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "image-forward tile grids with overlaid text",
+      "tailored-support / campaign highlight tiles"
+    ],
+    "notSuitableFor": [
+      "icon cards",
+      "text-only cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/edc-test-page"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T19:59:03.028Z"
+  }
+}

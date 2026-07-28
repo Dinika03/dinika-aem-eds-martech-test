@@ -1,0 +1,499 @@
+@import url('brand.css');
+
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+:root {
+  /* colors */
+  --background-color: rgb(255 255 255);
+  --light-color: rgb(230 249 224);
+  --dark-color: rgb(18 40 33);
+  --text-color: rgb(18 40 33);
+  --link-color: rgb(18 40 33);
+  --link-hover-color: rgb(18 40 33);
+
+  /* fonts (families provided by brand.css) */
+
+  /* body sizes */
+  --body-font-size-m: 20px;
+  --body-font-size-s: 18px;
+  --body-font-size-xs: 16px;
+
+  /* heading sizes (mobile-first) */
+  --heading-font-size-xxl: 36px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+
+  /* nav height */
+  --nav-height: 43px;
+}
+
+@media (width >= 900px) {
+  :root {
+    /* body sizes */
+    --body-font-size-m: 20px;
+    --body-font-size-s: 18px;
+    --body-font-size-xs: 16px;
+
+    /* heading sizes (desktop) */
+    --heading-font-size-xxl: 72px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 20px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
+  }
+}
+
+body {
+  display: none;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+body.appear {
+  display: block;
+}
+
+header {
+  min-height: var(--nav-height);
+}
+
+header .header,
+footer .footer {
+  visibility: hidden;
+}
+
+header .header[data-block-status="loaded"],
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  line-height: 1.27;
+  color: var(--text-color);
+  scroll-margin: 40px;
+}
+
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
+
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
+}
+
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
+
+pre {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--light-color);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+main > div {
+  margin: 40px 16px;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* links */
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* buttons */
+p.button-wrapper {
+  margin: 12px 0;
+}
+
+a.button:any-link,
+button.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.button:any-link:hover,
+button.button:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+}
+
+/* Standalone default-content CTA links (a <p> whose only child is a link)
+   render as pill buttons, matching the source's "Book a call" /
+   "Learn about our mission" CTAs. */
+main .default-content-wrapper p:has(> a:only-child:any-link) {
+  margin: 12px 0;
+}
+
+main .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+}
+
+main .default-content-wrapper p:has(> a:only-child) > a:any-link:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+/* On accent sections the pill stays light on the dark band */
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.accent .default-content-wrapper p:has(> a:only-child) > a:any-link {
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+}
+
+a.button[aria-disabled="true"],
+button.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+a.button.primary,
+button.button.primary {
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+a.button.primary:hover,
+a.button.primary:focus-visible,
+button.button.primary:hover,
+button.button.primary:focus-visible {
+  border-color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+a.button.primary[aria-disabled="true"],
+a.button.primary[aria-disabled="true"]:hover,
+a.button.primary[aria-disabled="true"]:focus-visible,
+button.button.primary:disabled,
+button.button.primary:disabled:hover,
+button.button.primary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+a.button.secondary,
+button.button.secondary {
+  border-color: var(--text-color);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+button.button.secondary:hover,
+button.button.secondary:focus-visible {
+  border-color: var(--dark-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+a.button.secondary[aria-disabled="true"],
+a.button.secondary[aria-disabled="true"]:hover,
+a.button.secondary[aria-disabled="true"]:focus-visible,
+button.button.secondary:disabled,
+button.button.secondary:disabled:hover,
+button.button.secondary:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+/* high-impact call-to-action */
+a.button.accent,
+button.button.accent {
+  border-color: var(--link-color);
+  background-color: var(--link-color);
+  color: var(--background-color);
+}
+
+a.button.accent:hover,
+a.button.accent:focus-visible,
+button.button.accent:hover,
+button.button.accent:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+}
+
+a.button.accent[aria-disabled="true"],
+a.button.accent[aria-disabled="true"]:hover,
+a.button.accent[aria-disabled="true"]:focus-visible,
+button.button.accent:disabled,
+button.button.accent:disabled:hover,
+button.button.accent:disabled:focus-visible {
+  background-color: var(--light-color);
+  border-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+main img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* sections */
+main > .section {
+  margin: 40px 0;
+}
+
+main > .section > div {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+}
+
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+/* section metadata */
+main .section.light,
+main .section.highlight {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.accent {
+  background-color: var(--dark-green);
+  color: rgb(255 255 255);
+  margin: 0;
+  padding: 80px 0;
+}
+
+main .section.accent h1,
+main .section.accent h2,
+main .section.accent h3,
+main .section.accent h4,
+main .section.accent h5,
+main .section.accent h6,
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.accent p {
+  color: rgb(255 255 255);
+}
+
+main .section.dark {
+  background-color: var(--dark-green);
+  color: rgb(255 255 255);
+  margin: 0;
+  padding: 80px 0;
+}
+
+/* EDC alert bar: solid blue full-width notice strip above the hero */
+main .section.promo-bar {
+  background-color: #1a5bb8;
+  margin: 0;
+  padding: 14px 0;
+}
+
+main .section.promo-bar > div {
+  padding: 0 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.promo-bar p {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Beat the global standalone-CTA pill rule (same shape + extra .promo-bar class). */
+/* stylelint-disable no-descending-specificity */
+main .section.promo-bar .default-content-wrapper p:has(> a:only-child) > a:any-link,
+main .section.promo-bar a:any-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* When an accent section wraps a self-contained full-bleed band block
+   (EDC cta-band renders its own navy background), drop the section's own
+   band styling so the block bleeds edge-to-edge without a coloured margin. */
+main .section.accent:has(.cta-band) {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* EDC uses a sans-serif type system (not the Remarkable serif headings).
+   Scope sans-serif headings to the EDC-specific blocks on this page. */
+/* stylelint-disable no-descending-specificity */
+main .hero-edc h1,
+main .hero-edc h2,
+main .hero-edc h3,
+main .cards-edc-support h3,
+main .tabs-insights h3,
+main .cards-solutions h3,
+main .cta-band h2,
+main .cta-band h3,
+main .cards-resources h3,
+main .cards-tiles h3 {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Newsletter signup section (default content: heading + text + email row + note) */
+main .section.newsletter {
+  padding: 80px 0;
+}
+
+main .section.newsletter .default-content-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main .section.newsletter h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+/* "Enter your email" label + arrow icon form a pill input row */
+main .section.newsletter .default-content-wrapper p:nth-of-type(2) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 420px;
+  margin: 32px auto 8px;
+  padding: 8px 8px 8px 24px;
+  border-radius: 46px;
+  background-color: rgb(240 240 238);
+  color: rgb(90 90 90);
+  text-align: left;
+}
+
+/* the arrow icon becomes a dark circular submit button */
+main .section.newsletter .default-content-wrapper p:nth-of-type(3) {
+  display: none;
+}
+
+main .section.newsletter .default-content-wrapper p:nth-of-type(2)::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--dark-green);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M7 17L17 7M17 7H9M17 7v8"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+/* small print disclaimer */
+main .section.newsletter .default-content-wrapper p:last-child {
+  max-width: 420px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: rgb(90 90 90);
+  text-align: left;
+}

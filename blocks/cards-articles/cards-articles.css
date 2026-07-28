@@ -1,0 +1,85 @@
+/* Block: cards-articles ("no-images" article teaser variant)
+   Values extracted from source computed styles — see migration-work/cards-articles-extracted.css
+   Decorated DOM: .cards-articles > ul > li > div.cards-articles-card-body > (h3, p, p, p>a) */
+
+/* Grid container — mobile-first: single column, 48px vertical rhythm */
+.cards-articles > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+/* Card */
+.cards-articles > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;                 /* source: home-section1 gap between title-group and CTA */
+  background-color: transparent;
+}
+
+/* Title + description group */
+.cards-articles .cards-articles-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;                 /* source: home-header3 / home-description3 gap */
+  margin: 0;
+}
+
+.cards-articles .cards-articles-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);   /* 36px on mobile */
+  font-weight: 500;
+  line-height: 1.15;                           /* 41.4 / 36 */
+  color: var(--text-color);
+}
+
+.cards-articles .cards-articles-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);        /* 16px */
+  line-height: 1.5;                            /* 24 / 16 */
+  color: var(--text-color);
+}
+
+/* Read more CTA — source renders as a pill button (accent-green bg) */
+.cards-articles .cards-articles-card-body p:last-child {
+  margin-top: 32px;          /* 16px flex gap + 32px = 48px card gap to CTA */
+}
+
+.cards-articles .cards-articles-card-body a:any-link {
+  display: inline-block;
+  padding: 16px 32px;
+  border: 0;
+  border-radius: 46px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);          /* 18px */
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.cards-articles .cards-articles-card-body a:any-link:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+/* Desktop: 2 columns, 140px column gap / 80px row gap (source) */
+@media (width >= 900px) {
+  .cards-articles > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 140px;    /* row-gap 80px, column-gap 140px (source) */
+  }
+
+  .cards-articles .cards-articles-card-body h3 {
+    font-size: 36px;         /* source h3 stays 36px on desktop (not the 72px xxl var) */
+  }
+}

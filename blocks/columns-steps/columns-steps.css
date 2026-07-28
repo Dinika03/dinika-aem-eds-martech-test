@@ -1,0 +1,131 @@
+/* columns-steps -- steps/process section (header column + numbered step cards) */
+
+/* Row layout: mobile-first single column */
+.columns-steps > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: start;
+}
+
+.columns-steps > div > div {
+  width: 100%;
+}
+
+/* Header column */
+.columns-steps .columns-steps-header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-steps .columns-steps-header h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-size-xl);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.columns-steps .columns-steps-header p {
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.columns-steps .columns-steps-header .button-container {
+  margin: 0;
+}
+
+/* Ensure the header CTA renders as a pill button even if EDS
+   button decoration did not apply the .button class. */
+.columns-steps .columns-steps-header p > a:only-child {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.columns-steps .columns-steps-header p > a:only-child:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+/* Steps list column */
+.columns-steps .columns-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Individual step card */
+.columns-steps .columns-steps-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: var(--background-color);
+}
+
+/* Alternating accent background (cards 2 and 4) */
+.columns-steps .columns-steps-card:nth-child(even) {
+  background-color: var(--accent-green);
+}
+
+/* Big step number, positioned top-right */
+.columns-steps .columns-steps-number {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-size-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+.columns-steps .columns-steps-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 48px;
+}
+
+.columns-steps .columns-steps-title {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-size-xl);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+.columns-steps .columns-steps-card-body p:not(.columns-steps-title) {
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* Desktop: two-column split */
+@media (width >= 900px) {
+  .columns-steps > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}

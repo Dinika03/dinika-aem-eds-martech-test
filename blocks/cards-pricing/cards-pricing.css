@@ -1,0 +1,143 @@
+/* cards-pricing block
+ * Design migrated from source pricing14 cards.
+ * Decorated DOM: .cards-pricing > ul > li > div.cards-pricing-card-body
+ *   p (plan name), h3 (price), p (secondary price), ul>li (features), p>a.button (CTA)
+ */
+
+/* card grid: stack on mobile, 3-up on desktop */
+.cards-pricing > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* card */
+.cards-pricing > ul > li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(25 24 24);
+  border-radius: 8px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* card body holds all content; stretch so CTA can pin to bottom */
+.cards-pricing .cards-pricing-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin: 0;
+  padding: 32px;
+  text-align: center;
+}
+
+/* price */
+.cards-pricing .cards-pricing-card-body h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-color);
+}
+
+/* secondary price (paragraph immediately after the price heading) */
+.cards-pricing .cards-pricing-card-body h3 + p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* plan name (first paragraph) */
+.cards-pricing .cards-pricing-card-body > p:first-child {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  color: var(--text-color);
+}
+
+/* feature list */
+.cards-pricing .cards-pricing-card-body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* feature row with leading checkmark */
+.cards-pricing .cards-pricing-card-body ul li {
+  position: relative;
+  margin: 0;
+  padding-left: 40px;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+.cards-pricing .cards-pricing-card-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background-color: var(--dark-green);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat center / contain;
+}
+
+/* CTA button: pin to bottom, full width.
+ * The CTA link is not auto-decorated into .button (block JS rebuilds the DOM),
+ * so apply the brand pill styling directly to the last paragraph's link. */
+.cards-pricing .cards-pricing-card-body > p:last-child {
+  margin: 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+.cards-pricing .cards-pricing-card-body > p:last-child a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 46px;
+  padding: 16px 32px;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cards-pricing .cards-pricing-card-body > p:last-child a:any-link:hover {
+  background-color: var(--dark-green);
+  color: var(--accent-green);
+  text-decoration: none;
+}
+
+/* desktop: 3-up equal columns */
+@media (width >= 900px) {
+  .cards-pricing > ul {
+    flex-direction: row;
+  }
+
+  .cards-pricing > ul > li {
+    flex: 1;
+  }
+}

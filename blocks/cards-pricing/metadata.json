@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-pricing",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-24T13:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+    "originPage": "Our Offer page - pricing plans section",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "pricing",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "plan name + price + secondary price + feature checklist + CTA button",
+    "buttonCount": 3,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "pricing plan tiles",
+      "subscription tier comparisons",
+      "package/plan cards with feature lists and a CTA"
+    ],
+    "notSuitableFor": [
+      "image-first content cards",
+      "testimonials",
+      "logo grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/our-offer-page"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T13:56:00.000Z"
+  }
+}

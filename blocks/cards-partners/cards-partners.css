@@ -1,0 +1,76 @@
+/* Block: cards-partners -- staggered wall of partner brand logos.
+   Source layout: a heading column on the left, and a 4-column grid of
+   160x160 bordered logo tiles on the right. Columns are vertically centered
+   with different tile counts, producing a staggered pyramid. */
+
+.cards-partners .cards-partners-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.cards-partners .cards-partners-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* individual logo tile */
+.cards-partners .cards-partners-column > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--dark-green);
+  background-color: transparent;
+  list-style: none;
+}
+
+.cards-partners .cards-partners-column > li img {
+  width: auto;
+  max-width: 60%;
+  height: 40px;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .cards-partners .cards-partners-columns {
+    flex-wrap: nowrap;
+    gap: 64px;
+  }
+
+  .cards-partners .cards-partners-column {
+    gap: 64px;
+  }
+
+  .cards-partners .cards-partners-column > li {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Place the "Our partners" heading column to the LEFT of the logo grid. */
+  main .section.cards-partners-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  main .section.cards-partners-container > .default-content-wrapper {
+    flex: 0 0 396px;
+    max-width: 396px;
+    margin: 0;
+  }
+
+  main .section.cards-partners-container > .cards-partners-wrapper {
+    flex: 0 1 auto;
+    margin: 0;
+  }
+}

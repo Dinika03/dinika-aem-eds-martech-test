@@ -1,0 +1,508 @@
+{
+  "metadata": {
+    "projectType": "doc"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://remarketabletemplateaepdinika.netlify.app/"
+      ],
+      "representativeUrl": "https://remarketabletemplateaepdinika.netlify.app/",
+      "coverageGaps": [],
+      "description": "Marketing homepage for the Remarkable small-business template: header/nav, hero, mission statements, improve/services sections, testimonials, partners logos, article cards, CTA banner, gallery, newsletter signup, and footer.",
+      "blocks": [
+        {
+          "name": "hero-intro",
+          "instances": [
+            "section.home-hero",
+            "header.home-hero"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "section.home-improve div.home-tabs"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            "section.home-services1 div.home-cards"
+          ]
+        },
+        {
+          "name": "cards-testimonial",
+          "instances": [
+            "section.home-testimonials div.home-container2"
+          ]
+        },
+        {
+          "name": "cards-partners",
+          "instances": [
+            "section.home-partners div.home-partners-desktop"
+          ]
+        },
+        {
+          "name": "cards-articles",
+          "instances": [
+            "section.home-services2 div.home-sections"
+          ]
+        },
+        {
+          "name": "columns-gallery",
+          "instances": [
+            "section.home-galleries div.home-gallery-desktop"
+          ]
+        },
+        {
+          "name": "section-testimonials",
+          "instances": [
+            "section.home-testimonials"
+          ],
+          "section": "accent"
+        },
+        {
+          "name": "section-banner",
+          "instances": [
+            "section.home-banner"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc2",
+          "name": "hero",
+          "selector": "section.home-hero",
+          "style": null,
+          "blocks": [
+            "hero-intro"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "mission1",
+          "selector": "section.home-mission1",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission1 h2.home-text15",
+            "section.home-mission1 a.home-navlink4"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "improve",
+          "selector": "section.home-improve",
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": [
+            "section.home-improve div.home-heading1"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "services1",
+          "selector": "section.home-services1",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": [
+            "section.home-services1 h2.home-text25"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "testimonials",
+          "selector": "section.home-testimonials",
+          "style": "accent",
+          "blocks": [
+            "cards-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "partners",
+          "selector": "section.home-partners",
+          "style": null,
+          "blocks": [
+            "cards-partners"
+          ],
+          "defaultContent": [
+            "section.home-partners div.home-content4"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "services2",
+          "selector": "section.home-services2",
+          "style": null,
+          "blocks": [
+            "cards-articles"
+          ],
+          "defaultContent": [
+            "section.home-services2 div.home-heading2"
+          ]
+        },
+        {
+          "id": "rc9",
+          "name": "banner",
+          "selector": "section.home-banner",
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "section.home-banner div.home-container5"
+          ]
+        },
+        {
+          "id": "rc10",
+          "name": "mission2",
+          "selector": "section.home-mission2",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission2 div.home-content5"
+          ]
+        },
+        {
+          "id": "rc11",
+          "name": "galleries",
+          "selector": "section.home-galleries",
+          "style": null,
+          "blocks": [
+            "columns-gallery"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc12",
+          "name": "mission3",
+          "selector": "section.home-mission3",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "section.home-mission3 div.home-content6"
+          ]
+        },
+        {
+          "id": "rc13",
+          "name": "newsletter",
+          "selector": "section.home-newsletter",
+          "style": "newsletter",
+          "blocks": [],
+          "defaultContent": [
+            "section.home-newsletter div.home-header8",
+            "section.home-newsletter div.home-content7"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "our-offer-page",
+      "urls": [
+        "https://remarketabletemplateaepdinika.netlify.app/our-offer-page"
+      ],
+      "representativeUrl": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+      "coverageGaps": [],
+      "description": "Offers/pricing landing page: hero with image collage, feature lists (services + website design), CTA banners, pricing plans, steps/process, testimonials grid, and contact cards.",
+      "blocks": [
+        {
+          "name": "hero-intro",
+          "instances": [
+            "hero17-wrapper"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            "features24-wrapper",
+            "features25-wrapper"
+          ]
+        },
+        {
+          "name": "cards-pricing",
+          "instances": [
+            "a.our-offer-page-navlink4"
+          ]
+        },
+        {
+          "name": "columns-steps",
+          "instances": [
+            "steps2-wrapper"
+          ]
+        },
+        {
+          "name": "cards-testimonial",
+          "instances": [
+            "testimonial17-wrapper"
+          ]
+        },
+        {
+          "name": "cards-contact",
+          "instances": [
+            "contact10-wrapper"
+          ]
+        },
+        {
+          "name": "section-cta",
+          "instances": [
+            "a.our-offer-page-navlink3"
+          ],
+          "section": "accent"
+        },
+        {
+          "name": "section-testimonials",
+          "instances": [
+            "testimonial17-wrapper"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "hero",
+          "selector": "hero17-wrapper",
+          "style": null,
+          "blocks": [
+            "hero-intro"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "features1",
+          "selector": "features24-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "cta",
+          "selector": "a.our-offer-page-navlink3",
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "a.our-offer-page-navlink3"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "features2",
+          "selector": "features25-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc5",
+          "name": "pricing",
+          "selector": "a.our-offer-page-navlink4",
+          "style": null,
+          "blocks": [
+            "cards-pricing"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "steps",
+          "selector": "steps2-wrapper",
+          "style": null,
+          "blocks": [
+            "columns-steps"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "testimonials",
+          "selector": "testimonial17-wrapper",
+          "style": "accent",
+          "blocks": [
+            "cards-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc8",
+          "name": "contact",
+          "selector": "contact10-wrapper",
+          "style": null,
+          "blocks": [
+            "cards-contact"
+          ],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "edc-test-page",
+      "urls": [
+        "https://www.edc.ca/"
+      ],
+      "representativeUrl": "https://www.edc.ca/",
+      "coverageGaps": [],
+      "description": "EDC (Export Development Canada) homepage: promo bar, hero, support cards, insights tabs, solutions cards, solutions-finder CTA, resources cards, tailored-support cards. Imported to /edc-test-page.",
+      "blocks": [
+        {
+          "name": "hero-edc",
+          "instances": [
+            "div.top-banner-comp"
+          ]
+        },
+        {
+          "name": "cards-edc-support",
+          "instances": [
+            "div.knowledgeandresources:nth-of-type(2) section.knowledge-and-resources"
+          ]
+        },
+        {
+          "name": "tabs-insights",
+          "instances": [
+            "div.export-trends"
+          ]
+        },
+        {
+          "name": "cards-solutions",
+          "instances": [
+            "div.homepageproductcard"
+          ]
+        },
+        {
+          "name": "cta-band",
+          "instances": [
+            "section.c-triage-cta"
+          ]
+        },
+        {
+          "name": "cards-resources",
+          "instances": [
+            "div.knowledgeandresources:nth-of-type(6) section.knowledge-and-resources"
+          ]
+        },
+        {
+          "name": "cards-tiles",
+          "instances": [
+            "section.trade-expertise-highlights"
+          ]
+        },
+        {
+          "name": "section-promo",
+          "instances": [
+            "div.homepage-flag:nth-of-type(2)"
+          ],
+          "section": "promo-bar"
+        },
+        {
+          "name": "section-cta",
+          "instances": [
+            "section.c-triage-cta"
+          ],
+          "section": "accent"
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "promo",
+          "selector": "div.homepage-flag:nth-of-type(2)",
+          "style": "promo-bar",
+          "blocks": [],
+          "defaultContent": [
+            "div.homepage-flag:nth-of-type(2)"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "hero",
+          "selector": "div.top-banner-comp",
+          "style": null,
+          "blocks": [
+            "hero-edc"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "support",
+          "selector": "div.knowledgeandresources:nth-of-type(2)",
+          "style": null,
+          "blocks": [
+            "cards-edc-support"
+          ],
+          "defaultContent": [
+            "div.knowledgeandresources:nth-of-type(2) div.heading-wrapper"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "insights",
+          "selector": "div.export-trends",
+          "style": null,
+          "blocks": [
+            "tabs-insights"
+          ],
+          "defaultContent": [
+            "div.export-trends h2"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "solutions",
+          "selector": "div.homepageproductcard",
+          "style": null,
+          "blocks": [
+            "cards-solutions"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc6",
+          "name": "finder",
+          "selector": "section.c-triage-cta",
+          "style": "accent",
+          "blocks": [
+            "cta-band"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "resources",
+          "selector": "div.knowledgeandresources:nth-of-type(6)",
+          "style": null,
+          "blocks": [
+            "cards-resources"
+          ],
+          "defaultContent": [
+            "div.knowledgeandresources:nth-of-type(6) div.heading-wrapper"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "tailored",
+          "selector": "section.trade-expertise-highlights",
+          "style": null,
+          "blocks": [
+            "cards-tiles"
+          ],
+          "defaultContent": [
+            "section.trade-expertise-highlights h2"
+          ]
+        }
+      ]
+    }
+  ]
+}

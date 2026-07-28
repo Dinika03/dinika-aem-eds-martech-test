@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-steps",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-24T13:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+    "originPage": "Our Offer page - process/steps section",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "steps",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "left header column (heading + text + button) beside a grid of numbered step cards (title + description + number)",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "numbered process/steps sections",
+      "how-it-works layouts with a header column and step tiles",
+      "onboarding flows"
+    ],
+    "notSuitableFor": [
+      "image galleries",
+      "text-and-image feature splits",
+      "pricing or testimonial grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/our-offer-page"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-24T13:56:00.000Z"
+  }
+}

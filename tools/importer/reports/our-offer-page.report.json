@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://remarketabletemplateaepdinika.netlify.app/our-offer-page",
+  "path": "our-offer-page",
+  "timestamp": "2026-07-24T14:13:28.942Z",
+  "title": "Our-Offer-Page - Remarkable template",
+  "template": "our-offer-page",
+  "blocks": [
+    "hero-intro",
+    "cards-services",
+    "cards-services",
+    "cards-pricing",
+    "columns-steps",
+    "cards-testimonial",
+    "cards-contact"
+  ]
+}

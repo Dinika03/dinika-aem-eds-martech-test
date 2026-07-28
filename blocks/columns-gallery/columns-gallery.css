@@ -1,0 +1,90 @@
+/* columns-gallery -- image-only masonry gallery
+ * Design extracted from source: section.home-galleries div.home-gallery-desktop
+ * (remarketabletemplateaepdinika.netlify.app)
+ * Layout: asymmetric two-column masonry, 32px gap, no border-radius, cover-fit images.
+ */
+
+/* Accent box color used by the source gallery (yellow tile) */
+.columns-gallery {
+  --columns-gallery-accent: rgb(250 228 142);
+  --columns-gallery-gap: 32px;
+}
+
+/* --- Mobile-first: single stacked column of images --- */
+.columns-gallery > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--columns-gallery-gap);
+}
+
+.columns-gallery > div > div {
+  display: flex;
+  margin: 0;
+}
+
+.columns-gallery picture {
+  display: block;
+  width: 100%;
+}
+
+.columns-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Second slot is the accent tile in the source design */
+.columns-gallery > div > div:nth-child(2):empty {
+  min-height: 240px;
+  background-color: var(--columns-gallery-accent);
+}
+
+/* --- Desktop: asymmetric masonry grid mirroring the source proportions ---
+ * Source columns: left 39.6% (tall image) + right 62.2%.
+ * Right column has two rows: (accent 32.5% + wide image 63.3%)
+ * and (image 56.8% + image 39.0%).
+ * Reproduced with a 5-track CSS grid using named areas.
+ */
+@media (width >= 900px) {
+  .columns-gallery > div {
+    display: grid;
+
+    /* Source row heights: top band 330px, bottom band ~608px (ratio ~0.54 : 1).
+       Columns: left 39.6%, accent 20.2%, wide 42%. */
+    grid-template:
+      "a b c" minmax(300px, 33vw)
+      "a d d" minmax(400px, 45vw)
+      / 39.6fr 20.2fr 42fr;
+    gap: var(--columns-gallery-gap);
+    align-items: stretch;
+  }
+
+  .columns-gallery > div > div {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Left tall image spans both rows */
+  .columns-gallery > div > div:nth-child(1) { grid-area: a; }
+
+  /* Accent tile top-left of the right column */
+  .columns-gallery > div > div:nth-child(2) { grid-area: b; }
+
+  /* Wide image top-right */
+  .columns-gallery > div > div:nth-child(3) { grid-area: c; }
+
+  /* Bottom band spanning the right column */
+  .columns-gallery > div > div:nth-child(4) { grid-area: d; }
+
+  /* Only the second slot is an accent tile in the source design.
+     Other empty slots stay transparent (they await authored images). */
+  .columns-gallery > div > div:empty {
+    background-color: transparent;
+  }
+
+  .columns-gallery > div > div:nth-child(2):empty {
+    background-color: var(--columns-gallery-accent);
+  }
+}

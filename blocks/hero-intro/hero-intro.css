@@ -1,0 +1,148 @@
+/* full-width hero: override section max-width/padding constraint */
+.hero-intro-container .hero-intro-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-intro {
+  color: var(--text-color);
+  text-align: start;
+}
+
+/* row wrapper */
+.hero-intro > div {
+  width: 100%;
+}
+
+/* content cell: mobile-first single column */
+.hero-intro > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 40px 24px;
+}
+
+.hero-intro-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.hero-intro h1 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 500;
+  line-height: 1.28;
+  color: var(--text-color);
+}
+
+.hero-intro p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* decorative line under the copy */
+.hero-intro-line img {
+  width: 240px;
+  height: auto;
+}
+
+/* image collage */
+.hero-intro-media {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+}
+
+.hero-intro-media p {
+  margin: 0;
+}
+
+.hero-intro-media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@media (width >= 900px) {
+  .hero-intro > div > div {
+    display: grid;
+    grid-template-columns: minmax(0, 558fr) minmax(0, 670fr);
+    align-items: center;
+    column-gap: 48px;
+    min-height: 700px;
+    padding: 0 24px 0 82px;
+  }
+
+  .hero-intro-text {
+    gap: 24px;
+    max-width: 558px;
+  }
+
+  .hero-intro p {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  /* collage: tall image left, smaller image overlapping bottom-right, yellow accent behind */
+  .hero-intro-media {
+    position: relative;
+    height: 700px;
+    gap: 0;
+    align-self: stretch;
+  }
+
+  /* yellow accent block behind the collage (top-right) */
+  .hero-intro-media::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 380px;
+    background-color: rgb(250 228 142);
+    z-index: 0;
+  }
+
+  /* tall primary image */
+  .hero-intro-media p:first-child {
+    position: relative;
+    z-index: 1;
+    align-self: center;
+    width: 485px;
+    height: 700px;
+  }
+
+  .hero-intro-media p:first-child img {
+    width: 485px;
+    height: 700px;
+  }
+
+  /* smaller image overlapping bottom-right */
+  .hero-intro-media p:nth-child(2) {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    z-index: 2;
+    width: 305px;
+    height: 390px;
+  }
+
+  .hero-intro-media p:nth-child(2) img {
+    width: 305px;
+    height: 390px;
+  }
+
+  /* keep the decorative line out of the desktop flow (source shows it faintly) */
+  .hero-intro-line {
+    display: none;
+  }
+}

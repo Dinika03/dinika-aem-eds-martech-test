@@ -1,0 +1,82 @@
+/* Image-forward tiles: full-bleed photo with overlaid heading + description + arrow link */
+.cards-tiles > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  .cards-tiles > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cards-tiles > ul > li {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* whole card is a link; keep image + body in the li layout */
+.cards-tiles .cards-tiles-card-link {
+  display: contents;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cards-tiles .cards-tiles-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  line-height: 0;
+}
+
+.cards-tiles .cards-tiles-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* dark gradient scrim for legible overlaid text */
+.cards-tiles > ul > li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 40%, rgb(0 48 87 / 85%) 100%);
+}
+
+.cards-tiles .cards-tiles-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  color: #fff;
+}
+
+.cards-tiles .cards-tiles-card-body h3 {
+  color: #fff;
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.cards-tiles .cards-tiles-card-body p {
+  color: rgb(255 255 255 / 90%);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.cards-tiles .cards-tiles-card-body a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cards-tiles .cards-tiles-card-body a::after {
+  content: ' \2192';
+}
