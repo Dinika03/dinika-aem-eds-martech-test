@@ -81,6 +81,7 @@ const martechConfig = {
   dataLayer: false,                        // ACDL OFF — DLM owns the data layer
   launchUrls: ENV.launchUrl && !ENV.launchUrl.startsWith('PASTE_') ? [ENV.launchUrl] : [],
   trackPageView: true,
+  personalization: false,
   // analytics: true, personalization: true, trackPageView: true, performanceOptimized: true (defaults)
 };
 
