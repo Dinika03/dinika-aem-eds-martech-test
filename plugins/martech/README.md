@@ -411,7 +411,7 @@ SDK initialization and configuration live in your project's code rather than the
 ## Dependencies
 
 This plugin includes the following core libraries:
-- **Adobe Experience Platform WebSDK**: `v2.31.1` (`alloy.min.js`)
+- **Adobe Experience Platform WebSDK**: `v2.34.1` (`alloy.min.js`)
 - **Adobe Client Data Layer**: `v3.0.1` (`acdl.min.js`)
 
 To update the vendored copies from Adobe's official distribution channels (the WebSDK
