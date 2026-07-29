@@ -13,10 +13,11 @@ import {
   readBlockConfig,
   toClassName,
   toCamelCase,
-  getMetadata, //dinika update
+  
 } from './aem.js';
-//updated by dinika
-// ---- Martech config, per environment --------------------------------------
+
+
+// updated by dinika
 const MARTECH = {
   orgId: '0CEB60F754C7E06B0A4C98A2@AdobeOrg',
   alloySrc: '/scripts/alloy.min.js',
@@ -31,9 +32,6 @@ const MARTECH = {
     },
   },
 };
-const PERSONALIZATION_TIMEOUT = 3000; // must match the prehide snippet timeout
-const isPerso = () => getMetadata('target') === 'on';
-
 // EDS hostnames decide the environment:
 //   localhost / *.aem.page (preview)  -> dev
 //   *.aem.live + your production domain -> prod
@@ -47,52 +45,8 @@ function getEnvironment() {
   return 'prod';
 }
 const ENV = MARTECH.environments[getEnvironment()];
-// ---------------------------------------------------------------------------
+//end of dinika update
 
-// Alloy command queue — lets us call alloy() before alloy.min.js loads
-(function initAlloyQueue(w) {
-  if (w.alloy) return;
-  w.__alloyNS = ['alloy'];
-  w.alloy = (...args) => new Promise((resolve, reject) => {
-    (w.alloy.q = w.alloy.q || []).push([resolve, reject, args]);
-  });
-  w.alloy.q = [];
-}(window));
-
-let alloyReady;
-function loadAlloy() {
-  if (!alloyReady) {
-    window.alloy('configure', {
-      datastreamId: ENV.datastreamId,   // env-specific datastream, used by code AND Launch
-      orgId: MARTECH.orgId,
-      defaultConsent: 'in',             // use 'pending' + alloy('setConsent',…) if you gate
-    });
-    alloyReady = new Promise((resolve) => {
-      const s = document.createElement('script');
-      s.src = MARTECH.alloySrc;
-      s.async = true;
-      s.onload = resolve;
-      s.onerror = resolve;              // never hang the page on a load failure
-      document.head.appendChild(s);
-    });
-  }
-  return alloyReady;
-}
-
-// Analytics data object built from the eventData pageView push (no mapping)
-function pageViewData() {
-  const ev = (window.eventData || []).find((e) => e.event === 'page-loaded');
-  const p = (ev && ev.pageInfo) || {};
-  return { __adobe: { analytics: {
-    //pageName: p.pageName || document.title,
-    // map more pageInfo fields to Analytics vars per your spec, e.g.:
-       eVar1: p.pageName,   // eVar1
-       eVar6: p.pageURL,    // eVar6
-       eVar7: p.pagePath,   // eVar7
-    // c1: p.pageURL,    // prop1
-  } } };
-}
-// End of dinika update
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
     createHTML: (s) => s, // avoid stack overflow
@@ -312,18 +266,7 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   //updated by dinika
   pushPageData();
-   if (isPerso()) {
-    loadAlloy();
-    // ONE beacon: fetch+render personalization AND record the page view.
-    // Raced against the prehide timeout so the eager phase never stalls.
-    await Promise.race([
-      window.alloy('sendEvent', {
-        renderDecisions: true,          // auto-renders VEC/visual activities
-        data: pageViewData(),           // page view on the same beacon
-      }),
-      new Promise((r) => { setTimeout(r, PERSONALIZATION_TIMEOUT); }),
-    ]);
-  }
+   
   //end of dinika update
   const main = doc.querySelector('main');
   if (main) {
@@ -360,12 +303,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
- // update by dinika
- if (!isPerso()) {
-    loadAlloy();
-    window.alloy('sendEvent', { data: pageViewData() }); // page view for non-perso pages
-  }
-  // end of dinika update
+ 
 }
 
 /**
@@ -376,14 +314,7 @@ function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
-  // updated by dinika
-  if (ENV.launchUrl && !ENV.launchUrl.startsWith('PASTE_')) {
-    const s = document.createElement('script');   // Launch/DLM: clicks + 3rd-party, delayed
-    s.src = ENV.launchUrl;
-    s.async = true;
-    document.head.appendChild(s);
-  }
-  // end of dinika update
+ 
 }
 
 async function loadPage() {
