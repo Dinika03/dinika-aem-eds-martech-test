@@ -13,9 +13,11 @@ import {
   readBlockConfig,
   toClassName,
   toCamelCase,
-  
 } from './aem.js';
 
+import {
+  initMartech, martechEager, martechLazy, martechDelayed, updateUserConsent,
+} from '../plugins/martech/src/index.js';
 
 // updated by dinika
 const MARTECH = {
@@ -32,6 +34,7 @@ const MARTECH = {
     },
   },
 };
+
 // EDS hostnames decide the environment:
 //   localhost / *.aem.page (preview)  -> dev
 //   *.aem.live + your production domain -> prod
@@ -45,6 +48,33 @@ function getEnvironment() {
   return 'prod';
 }
 const ENV = MARTECH.environments[getEnvironment()];
+
+// WebSDK config — the onBeforeEventSend hook is where eventData feeds Analytics
+const webSDKConfig = {
+  datastreamId: ENV.datastreamId,          // from your getEnvironment()
+  orgId: '0CEB60F754C7E06B0A4C98A2@AdobeOrg',
+  onBeforeEventSend: (payload) => {
+    // Plugin has already scaffolded payload.data.__adobe.analytics = {}
+    const aa = payload.data?.__adobe?.analytics;
+    if (aa && payload.xdm?.eventType === 'web.webpagedetails.pageViews') {
+      const pv = (window.eventData || []).find((e) => e.event === 'page-loaded');
+      const p = (pv && pv.pageInfo) || {};
+      aa.pageName = p.pageName || document.title;
+      // map more fields per your spec, using REAL variable names:
+       aa.eVar1 = p.pageName;
+       aa.eVar6 = p.pageURL;
+       aa.eVar7 = p.pagePath;
+    }
+    return true; // returning false blocks the send
+  },
+};
+
+const martechConfig = {
+  dataLayer: false,                        // ACDL OFF — DLM owns the data layer
+  launchUrls: ENV.launchUrl && !ENV.launchUrl.startsWith('PASTE_') ? [ENV.launchUrl] : [],
+  // analytics: true, personalization: true, trackPageView: true, performanceOptimized: true (defaults)
+};
+
 //end of dinika update
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -266,10 +296,14 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   //updated by dinika
   pushPageData();
-   
+  await initMartech(webSDKConfig, martechConfig);
+  // TESTING ONLY — default consent is 'pending', so nothing sends until granted.
+  // Wire this to your real CMP before production.
+  updateUserConsent({ collect: true, marketing: true, personalize: true, share: false });
   //end of dinika update
   const main = doc.querySelector('main');
   if (main) {
+    await martechEager();   //updated by dinika
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
@@ -303,7 +337,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
- 
+  await martechLazy(); //updated by dinika
 }
 
 /**
@@ -312,9 +346,9 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
-  // load anything that can be postponed to the latest here
- 
+  window.setTimeout(() => {
+    martechDelayed(); //updated by dinika
+    import('./delayed.js')}, 3000)
 }
 
 async function loadPage() {
