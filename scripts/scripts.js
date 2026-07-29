@@ -212,6 +212,18 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
 }
+/** EDDL page-load event function */
+function pushPageData() {
+  window.eventData = window.eventData || [];
+  window.eventData.push({
+    event: 'page-loaded',
+    pageInfo: {
+      pageName: document.title,
+      pagePath: window.location.pathname,
+      pageURL: window.location.href,
+    },
+  });
+}
 
 /**
  * Loads everything needed to get to LCP.
@@ -220,6 +232,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  pushPageData();
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);

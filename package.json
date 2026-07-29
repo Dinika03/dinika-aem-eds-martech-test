@@ -27,5 +27,8 @@
     "stylelint": "17.14.1",
     "stylelint-config-standard": "40.0.0",
     "xlsx": "^0.18.5"
+  },
+  "dependencies": {
+    "@adobe/alloy": "^2.34.1"
   }
 }

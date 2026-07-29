@@ -9,8 +9,8 @@ function pushCardClickDataLayer(link) {
     || link.textContent.trim()
     || '';
 
-  window.adobeDataLayer = window.adobeDataLayer || [];
-  window.adobeDataLayer.push({
+  window.eventData = window.eventData || [];
+  window.eventData.push({
     event: 'cta',
     eventInfo: {
       eventName: `card click - ${title}`,

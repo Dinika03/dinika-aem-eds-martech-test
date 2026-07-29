@@ -19,7 +19,7 @@ ask permission for routine steps — just narrate what you are doing.
 ## Pipeline (run in order, autonomously)
 
 1. **Branch.** Create and switch to a feature branch:
-   `git checkout -b datalayer/<block-name>` (if it exists, switch to it).
+   `git checkout -b dl-<short-block-name>` (if it exists, switch to it).
    Never work on or commit to `main`.
 
 2. **Locate the spec file.** If the `.xlsx` is attached, note its path. If it
@@ -41,8 +41,8 @@ ask permission for routine steps — just narrate what you are doing.
    the correct block name and stop.
 
 5. **Implement.** Inject the data layer into the block's `decorate()`:
-   - Guard the array: `window.adobeDataLayer = window.adobeDataLayer || [];`
-   - Push with `window.adobeDataLayer.push({ event, ...nested })`.
+   - Guard the array: `window.eventData = window.eventData || [];`
+   - Push with `window.eventData.push({ event, ...nested })`.
    - Build nested objects from dot-notation element paths
      (`eventInfo.eventName` -> `{ eventInfo: { eventName: ... } }`).
    - Resolve each value by its rule from the spec:
@@ -75,8 +75,8 @@ ask permission for routine steps — just narrate what you are doing.
 
 ```js
 const title = card.querySelector('h2, h3, .card-title')?.textContent.trim() || '';
-window.adobeDataLayer = window.adobeDataLayer || [];
-window.adobeDataLayer.push({
+window.eventData = window.eventData || [];
+window.eventData.push({
   event: 'cta',
   eventInfo: {
     eventName: `card click - ${title}`,

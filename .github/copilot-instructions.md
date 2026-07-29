@@ -25,8 +25,8 @@ These rules apply to all Copilot Chat and Agent-mode interactions in this reposi
 
 - Analytics is **event-driven** via the Adobe Client Data Layer, consumed by
   the **Data Layer Manager extension in Adobe Tags (Launch)**.
-- Push events with `window.adobeDataLayer.push({ event, ... })`.
-  Always guard first: `window.adobeDataLayer = window.adobeDataLayer || [];`
+- Push events with `window.eventData.push({ event, ... })`.
+  Always guard first: `window.eventData = window.eventData || [];`
 - **Never** call Adobe Analytics / WebSDK / `alloy` / `s.t()` / `_satellite`
   directly from block code. Blocks only push to the data layer.
 - The **component name equals the block name** (the block folder name), but
