@@ -86,9 +86,9 @@ function pageViewData() {
   return { __adobe: { analytics: {
     //pageName: p.pageName || document.title,
     // map more pageInfo fields to Analytics vars per your spec, e.g.:
-       v1: p.pageName,   // eVar1
-       v6: p.pageURL,    // eVar6
-       v7: p.pagePath,   // eVar7
+       eVar1: p.pageName,   // eVar1
+       eVar6: p.pageURL,    // eVar6
+       eVar7: p.pagePath,   // eVar7
     // c1: p.pageURL,    // prop1
   } } };
 }
