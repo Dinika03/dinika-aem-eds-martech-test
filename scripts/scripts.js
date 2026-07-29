@@ -53,7 +53,7 @@ const ENV = MARTECH.environments[getEnvironment()];
 const webSDKConfig = {
   datastreamId: ENV.datastreamId,          // from your getEnvironment()
   orgId: '0CEB60F754C7E06B0A4C98A2@AdobeOrg',
-  onBeforeEventSend: (payload) => {
+ /* onBeforeEventSend: (payload) => {
     // Plugin has already scaffolded payload.data.__adobe.analytics = {}
     const aa = payload.data?.__adobe?.analytics;
     if (aa && payload.xdm?.eventType === 'web.webpagedetails.pageViews') {
@@ -64,15 +64,17 @@ const webSDKConfig = {
        aa.eVar1 = p.pageName;
        aa.eVar6 = p.pageURL;
        aa.eVar7 = p.pagePath;
-    }
-   /*onBeforeEventSend: (payload) => {
+    }*/
+   onBeforeEventSend: (payload) => {
+    console.log('[hook] eventType =', payload.xdm?.eventType);
   const aa = payload.data?.__adobe?.analytics;
   if (aa && payload.xdm?.eventType === 'web.webpagedetails.pageViews') {
+    console.log('[hook] PAGE VIEW passing through');  
     aa.pageName = document.title;
     aa.eVar1 = document.title;
     aa.eVar6 = window.location.href;
     aa.eVar7 = window.location.pathname;
-  }*/
+  }
     return true; // returning false blocks the send
   },
 };
