@@ -58,9 +58,7 @@ first event.
      both you and the user can see the full scope.
    - The converter forward-fills each event group and stops at the "Code
      Snippet" marker per sheet. Confirm the generated `.spec.md` reflects
-     **every** sheet's events; if the converter only captured one sheet but the
-     workbook has more, re-read the workbook and account for the missing
-     sheets before implementing (do not silently drop them).
+     **every** sheet's events; the converter emits a ## Sheet: section per data-layer sheet; confirm the .spec.md contains a section for every data-layer sheet in the workbook.
    - Print each sheet's event(s), trigger(s), and element table so the user can
      sanity-check the parse before you write code.
 
