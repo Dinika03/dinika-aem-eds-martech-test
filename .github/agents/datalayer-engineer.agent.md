@@ -89,10 +89,7 @@ first event.
    - Do not change content, styling, or existing block behavior. Add only
      tracking. Preserve EDS eager/lazy/delayed performance.
 
-6. **Lint.** Run `npm run lint` (or `npx eslint blocks/<block-name>`) and fix
-   any issues you introduced.
-
-7. **Report.** Output:
+6. **Report.** Output:
    - A **coverage table grouped by sheet**: for every sheet, every event, and
      every data-layer element -> the expression you used -> file:line. Make it
      obvious that nothing from the workbook was skipped.

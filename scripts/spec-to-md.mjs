@@ -14,7 +14,7 @@
  * If block-name is omitted it is derived from the file name.
  * Output: datalayer-specs/<block-name>.spec.md
  */
-import * as XLSX from 'xlsx';
+import XLSX from 'xlsx';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { basename } from 'node:path';
 
