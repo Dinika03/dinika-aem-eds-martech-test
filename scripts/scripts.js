@@ -306,6 +306,7 @@ function pushPageData() {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  
   //updated by dinika
   pushPageData();
   await initMartech(webSDKConfig, martechConfig);
