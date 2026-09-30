@@ -2,6 +2,25 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const CARD_LINK = 'https://main--dinika-aem-eds-martech-test--dinika03.aem.live/';
+const COMPONENT_NAME = 'Products Cards';
+
+function pushCardClickDataLayer(link) {
+  const title = link.querySelector('h2, h3, h4, .title, [class*="title"]')?.textContent.trim()
+    || link.textContent.trim()
+    || '';
+
+  window.eventData = window.eventData || [];
+  window.eventData.push({
+    event: 'cta',
+    eventInfo: {
+      eventName: `card click - ${title}`,
+      eventAction: 'card',
+      eventType: 'click',
+      eventComponent: COMPONENT_NAME,
+      eventText: title,
+    },
+  });
+}
 
 // Cards whose destination page has been migrated to this site, keyed by the
 // card heading. Relative paths resolve to aem.page on preview, aem.live on live.
@@ -29,6 +48,8 @@ export default function decorate(block) {
     link.className = 'cards-solutions-card-link';
     link.href = (authored && authored.getAttribute('href')) || migrated || CARD_LINK;
     if (authored) authored.replaceWith(...authored.childNodes);
+    link.href = CARD_LINK;
+    link.addEventListener('click', () => pushCardClickDataLayer(link));
     while (li.firstChild) link.append(li.firstChild);
     li.append(link);
     ul.append(li);

@@ -15,6 +15,80 @@ import {
   toCamelCase,
 } from './aem.js';
 
+import {
+  initMartech, martechEager, martechLazy, martechDelayed, updateUserConsent,
+} from '../plugins/martech/src/index.js';
+
+// updated by dinika
+const MARTECH = {
+  orgId: '0CEB60F754C7E06B0A4C98A2@AdobeOrg',
+  alloySrc: '/scripts/alloy.min.js',
+  environments: {
+    dev: {
+      datastreamId: '18cfd0f5-2757-48c7-b1b9-5d5116d9ef3b',
+      launchUrl: 'https://assets.adobedtm.com/e72b4113c11a/5921c51080ee/launch-53700c41e133-development.min.js',   // from Tags → Environments → Development
+    },
+    prod: {
+      datastreamId: 'cb8a0d46-2f72-4712-917f-604cd90c8abd',
+      launchUrl: 'https://assets.adobedtm.com/e72b4113c11a/5921c51080ee/launch-db988140f833.min.js',  // from Tags → Environments → Production
+    },
+  },
+};
+
+// EDS hostnames decide the environment:
+//   localhost / *.aem.page (preview)  -> dev
+//   *.aem.live + your production domain -> prod
+function getEnvironment() {
+  const { hostname } = window.location;
+  if (hostname === 'localhost'
+      || hostname.endsWith('.aem.page')
+      || hostname.endsWith('.hlx.page')) {
+    return 'dev';
+  }
+  return 'prod';
+}
+const ENV = MARTECH.environments[getEnvironment()];
+
+// WebSDK config — the onBeforeEventSend hook is where eventData feeds Analytics
+const webSDKConfig = {
+  datastreamId: ENV.datastreamId,          // from your getEnvironment()
+  orgId: '0CEB60F754C7E06B0A4C98A2@AdobeOrg',
+ onBeforeEventSend: (payload) => {
+    // Plugin has already scaffolded payload.data.__adobe.analytics = {}
+    const aa = payload.data?.__adobe?.analytics;
+    if (aa && payload.xdm?.eventType === 'web.webpagedetails.pageViews') {
+      const pv = (window.eventData || []).find((e) => e.event === 'page-loaded');
+      const p = (pv && pv.pageInfo) || {};
+      aa.pageName = p.pageName || document.title;
+      // map more fields per your spec, using REAL variable names:
+       aa.eVar1 = p.pageName;
+       aa.eVar6 = p.pageURL;
+       aa.eVar7 = p.pagePath;
+    }
+  /* onBeforeEventSend: (payload) => {
+    console.log('[hook] eventType =', payload.xdm?.eventType);
+  const aa = payload.data?.__adobe?.analytics;
+  if (aa && payload.xdm?.eventType === 'web.webpagedetails.pageViews') {
+    console.log('[hook] PAGE VIEW passing through');  
+    aa.pageName = document.title;
+    aa.eVar1 = document.title;
+    aa.eVar6 = window.location.href;
+    aa.eVar7 = window.location.pathname;
+  }*/
+    return true; // returning false blocks the send
+  },
+};
+
+const martechConfig = {
+  dataLayer: false,                        // ACDL OFF — DLM owns the data layer
+  launchUrls: ENV.launchUrl && !ENV.launchUrl.startsWith('PASTE_') ? [ENV.launchUrl] : [],
+  trackPageView: true,
+  personalization: true,
+  // analytics: true, personalization: true, trackPageView: true, performanceOptimized: true (defaults)
+};
+
+//end of dinika update
+
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
   const innerTT = window.trustedTypes.createPolicy('tt-inner', {
     createHTML: (s) => s, // avoid stack overflow
@@ -234,6 +308,18 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
 }
+/** EDDL page-load event function */
+function pushPageData() {
+  window.eventData = window.eventData || [];
+  window.eventData.push({
+    event: 'page-loaded',
+    pageInfo: {
+      pageName: document.title,
+      pagePath: window.location.pathname,
+      pageURL: window.location.href,
+    },
+  });
+}
 
 /**
  * Loads everything needed to get to LCP.
@@ -243,8 +329,17 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   if (isEdcPage()) document.body.classList.add('edc-theme');
+  
+  //updated by dinika
+  pushPageData();
+  await initMartech(webSDKConfig, martechConfig);
+  // TESTING ONLY — default consent is 'pending', so nothing sends until granted.
+  // Wire this to your real CMP before production.
+  updateUserConsent({ collect: true, marketing: true, personalize: true, share: false });
+  //end of dinika update
   const main = doc.querySelector('main');
   if (main) {
+    await martechEager();   //updated by dinika
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
@@ -278,6 +373,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+  await martechLazy(); //updated by dinika
 }
 
 /**
@@ -286,8 +382,10 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.setTimeout(() => import('./delayed.js'), 3000);
-  // load anything that can be postponed to the latest here
+  window.setTimeout(() => {
+    martechDelayed(); //updated by dinika
+    import('./delayed.js');
+  }, 3000)
 }
 
 async function loadPage() {

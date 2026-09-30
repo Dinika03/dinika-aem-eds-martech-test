@@ -3,6 +3,21 @@ import { toClassName, createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 const CARD_LINK = 'https://main--dinika-aem-eds-martech-test--dinika03.aem.live/';
+const COMPONENT_NAME = 'Export Trends';
+
+function pushInsightDataLayer({ eventName, eventAction, eventText }) {
+  window.eventData = window.eventData || [];
+  window.eventData.push({
+    event: 'cta',
+    eventInfo: {
+      eventName,
+      eventAction,
+      eventType: 'click',
+      eventComponent: COMPONENT_NAME,
+      eventText,
+    },
+  });
+}
 
 /**
  * Turn a panel's flat [picture, heading, picture, heading, …, more-link]
@@ -45,6 +60,16 @@ function decoratePanel(content) {
       const heading = document.createElement('h3');
       heading.innerHTML = node.innerHTML;
       const arrow = document.createElement('span');
+      card.addEventListener('click', () => {
+        const title = heading.textContent.trim() || '';
+        const formatType = card.querySelector('.tabs-insights-card-arrow') ? 'webinar' : '';
+        const tabLabel = card.closest('.tabs-insights-panel')?.getAttribute('data-tab-label') || '';
+        pushInsightDataLayer({
+          eventName: `${tabLabel} - card click - ${title} - ${formatType}`,
+          eventAction: 'card',
+          eventText: `${tabLabel} - ${title} - ${formatType}`,
+        });
+      });
       arrow.className = 'tabs-insights-card-arrow';
       arrow.setAttribute('aria-hidden', 'true');
       foot.append(heading, arrow);
@@ -55,6 +80,14 @@ function decoratePanel(content) {
 
     if (anchor) {
       anchor.href = CARD_LINK;
+      anchor.addEventListener('click', () => {
+        const tabLabel = content.closest('.tabs-insights-panel')?.getAttribute('data-tab-label') || '';
+        pushInsightDataLayer({
+          eventName: `link click - ${tabLabel}`,
+          eventAction: 'link',
+          eventText: 'more resources',
+        });
+      });
       moreLink = document.createElement('p');
       moreLink.className = 'tabs-insights-more';
       moreLink.append(anchor);
@@ -88,6 +121,7 @@ export default async function decorate(block) {
     const tabpanel = block.children[i];
     tabpanel.className = 'tabs-insights-panel';
     tabpanel.id = `tabpanel-${id}`;
+    tabpanel.setAttribute('data-tab-label', tab.textContent.trim());
     tabpanel.setAttribute('aria-hidden', !!i);
     tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
     tabpanel.setAttribute('role', 'tabpanel');
@@ -104,6 +138,12 @@ export default async function decorate(block) {
     button.setAttribute('role', 'tab');
     button.setAttribute('type', 'button');
     button.addEventListener('click', () => {
+      const pillText = button.textContent.trim();
+      pushInsightDataLayer({
+        eventName: `button click - ${pillText}`,
+        eventAction: 'button',
+        eventText: pillText,
+      });
       block.querySelectorAll('[role=tabpanel]').forEach((panel) => {
         panel.setAttribute('aria-hidden', true);
       });
