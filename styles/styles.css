@@ -440,6 +440,34 @@ main .cards-tiles h3 {
 }
 /* stylelint-enable no-descending-specificity */
 
+/* EDC pages (body.edc-theme): sans-serif headings throughout the page */
+body.edc-theme main :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+body.edc-theme main :is(.default-content-wrapper, .table-compare) a:any-link:not(.button) {
+  color: #1a5bb8;
+  text-decoration: underline;
+}
+
+/* EDC pale-blue band (e.g. gated lead-gen form): centred narrow column */
+main .section.light-blue {
+  background-color: #e5edf7;
+  margin: 0;
+  padding: 56px 0 64px;
+}
+
+main .section.light-blue > div {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+main .section.light-blue h2 {
+  color: #1a5bb8;
+}
+
 /* Newsletter signup section (default content: heading + text + email row + note) */
 main .section.newsletter {
   padding: 80px 0;

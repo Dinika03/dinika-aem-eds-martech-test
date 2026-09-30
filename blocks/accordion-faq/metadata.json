@@ -1,0 +1,31 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "lower"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "faq",
+    "imagePattern": "noimg",
+    "description": "FAQ accordion: bold question labels, thin grey separators, chevron on the right, collapsed by default."
+  },
+  "contentPattern": {
+    "structure": "question | answer x5",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

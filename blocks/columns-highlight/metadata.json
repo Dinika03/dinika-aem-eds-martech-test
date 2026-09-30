@@ -1,0 +1,31 @@
+{
+  "variantName": "columns-highlight",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large",
+    "description": "EDC product highlight: tall rounded portrait image with teal arrow accent beside heading, paragraphs and bullet list."
+  },
+  "contentPattern": {
+    "structure": "image + heading + paragraphs + list",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

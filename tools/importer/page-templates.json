@@ -503,6 +503,184 @@
           ]
         }
       ]
+    },
+    {
+      "name": "edc-credit-insurance",
+      "urls": [
+        "https://www.edc.ca/en/solutions/insurance/credit-insurance.html"
+      ],
+      "representativeUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+      "description": "EDC credit insurance solution page. Imported to /dinika-edc-credit-insurance-test. Uses EDC nav/footer; body links rewritten to /.",
+      "blocks": [
+        {
+          "name": "hero-page",
+          "instances": [
+            "header.c-l2-header"
+          ]
+        },
+        {
+          "name": "columns-benefits",
+          "instances": [
+            "div.text.aem-GridColumn--default--4"
+          ]
+        },
+        {
+          "name": "columns-highlight",
+          "instances": [
+            "div.product-highlight-banner"
+          ]
+        },
+        {
+          "name": "table-compare",
+          "instances": [
+            "section.table"
+          ]
+        },
+        {
+          "name": "cta-band",
+          "instances": [
+            "section.c-triage-cta"
+          ]
+        },
+        {
+          "name": "form-leadgen",
+          "instances": [
+            "section.c-gated-lead-gen-form"
+          ]
+        },
+        {
+          "name": "columns-testimonial",
+          "instances": [
+            "section.c-testimonial-quote"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "div.new-accordion"
+          ]
+        },
+        {
+          "name": "columns-inquiry",
+          "instances": [
+            "section.inquiry-submission"
+          ]
+        }
+      ],
+      "urlPattern": "/en/solutions/insurance/*",
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "page-header",
+          "selector": [
+            "div.l2header"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-page"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc2",
+          "name": "benefits",
+          "selector": [
+            "div.text.aem-GridColumn--phone--none.aem-GridColumn--default--12"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-benefits"
+          ],
+          "defaultContent": [
+            "div.text.aem-GridColumn--phone--none.aem-GridColumn--default--12 h2",
+            "div.text.aem-GridColumn--phone--none.aem-GridColumn--default--12 p"
+          ]
+        },
+        {
+          "id": "rc3",
+          "name": "highlight",
+          "selector": [
+            "div.producthighlightbanner"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-highlight"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "coverage-options",
+          "selector": [
+            "div.text.aem-GridColumn--phone--hide"
+          ],
+          "style": null,
+          "blocks": [
+            "table-compare",
+            "cta-band"
+          ],
+          "defaultContent": [
+            "div.text.aem-GridColumn--phone--hide h2",
+            "div.text.aem-GridColumn--phone--hide p"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "lead-gen",
+          "selector": [
+            "div.bluebackgroundcontainer",
+            "div.gatedleadgenform"
+          ],
+          "style": "light-blue",
+          "blocks": [
+            "form-leadgen"
+          ],
+          "defaultContent": [
+            "section.c-gated-lead-gen-form h2",
+            "section.c-gated-lead-gen-form h2 + p"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "testimonial",
+          "selector": [
+            "div.testimonialquote"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-testimonial"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc7",
+          "name": "faq",
+          "selector": [
+            "div.accordionwrapper"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": [
+            "div.new-accordion > h2"
+          ]
+        },
+        {
+          "id": "rc8",
+          "name": "inquiry",
+          "selector": [
+            "div.inquirysubmission"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-inquiry"
+          ],
+          "defaultContent": [
+            "div.modifieddate"
+          ]
+        }
+      ]
     }
   ]
 }

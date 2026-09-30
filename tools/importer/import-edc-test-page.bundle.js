@@ -143,6 +143,9 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/edc-cards-solutions.js
+  var MIGRATED_CARD_LINKS = [
+    { heading: /^trade credit insurance$/i, href: "/dinika-edc-credit-insurance-test" }
+  ];
   function parse4(element, { document }) {
     const items = Array.from(element.querySelectorAll("ol.two-columns > li, ol > li, ul > li"));
     const cards = items.length ? items : Array.from(element.querySelectorAll(".card"));
@@ -156,7 +159,16 @@ var CustomImportScript = (() => {
       const description = content.querySelector('p.description, p, .description, [class*="description"]');
       const cardLink = cardEl.querySelector("a.card-link, a[href]");
       const bodyCell = [];
-      if (heading) {
+      const headingText = heading ? (heading.textContent || "").trim() : "";
+      const migrated = MIGRATED_CARD_LINKS.find((m) => m.heading.test(headingText));
+      if (heading && migrated) {
+        const link = document.createElement("a");
+        link.href = migrated.href;
+        link.textContent = headingText;
+        heading.textContent = "";
+        heading.append(link);
+        bodyCell.push(heading);
+      } else if (heading) {
         if (cardLink && cardLink.getAttribute("href")) {
           const link = document.createElement("a");
           link.href = cardLink.getAttribute("href");

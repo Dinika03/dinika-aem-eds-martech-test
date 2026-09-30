@@ -1,0 +1,100 @@
+.columns-highlight {
+  --columns-highlight-heading: #1d1d1d;
+  --columns-highlight-body: #3a3a3a;
+  --columns-highlight-accent: #26a7a7;
+}
+
+.columns-highlight .columns-highlight-row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.columns-highlight .columns-highlight-row + .columns-highlight-row {
+  margin-top: 48px;
+}
+
+/* image with rounded corners and teal arrow accent */
+.columns-highlight .columns-highlight-image {
+  position: relative;
+  line-height: 0;
+}
+
+.columns-highlight .columns-highlight-image picture,
+.columns-highlight .columns-highlight-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.columns-highlight .columns-highlight-image::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: -8px;
+  width: 96px;
+  height: 96px;
+  background:
+    linear-gradient(135deg, transparent 0 40%, var(--columns-highlight-accent) 40% 60%, transparent 60%);
+  clip-path: polygon(0 100%, 0 45%, 20% 65%, 65% 20%, 45% 0, 100% 0, 100% 55%, 80% 35%, 35% 80%, 55% 100%);
+  pointer-events: none;
+}
+
+.columns-highlight h2,
+.columns-highlight h3 {
+  margin: 0 0 24px;
+  color: var(--columns-highlight-heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.columns-highlight .columns-highlight-text p,
+.columns-highlight .columns-highlight-text li {
+  color: var(--columns-highlight-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.columns-highlight .columns-highlight-text p {
+  margin: 0 0 16px;
+}
+
+.columns-highlight .columns-highlight-text ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.columns-highlight .columns-highlight-text li + li {
+  margin-top: 12px;
+}
+
+@media (width >= 900px) {
+  .columns-highlight .columns-highlight-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .columns-highlight .columns-highlight-row.columns-highlight-image-last {
+    flex-direction: row-reverse;
+  }
+
+  .columns-highlight .columns-highlight-image {
+    flex: 0 0 40%;
+  }
+
+  .columns-highlight .columns-highlight-image img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .columns-highlight .columns-highlight-text {
+    flex: 1 1 0;
+  }
+
+  .columns-highlight .columns-highlight-row.no-image .columns-highlight-text {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "variantName": "hero-page",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "compact",
+    "purpose": "page-header",
+    "imagePattern": "noimg",
+    "description": "Interior-page (L2) header: solid EDC blue band with H1 + subtitle and decorative chevron graphic; no photo or CTA."
+  },
+  "contentPattern": {
+    "structure": "title + subtitle",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

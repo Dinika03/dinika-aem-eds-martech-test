@@ -1,0 +1,31 @@
+{
+  "variantName": "table-compare",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "comparison",
+    "imagePattern": "noimg",
+    "description": "Product comparison table: grey header row with linked product names, striped rows, bordered container, first-column labels."
+  },
+  "contentPattern": {
+    "structure": "header row + label column + 2 product columns",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

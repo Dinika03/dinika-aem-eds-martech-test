@@ -1,0 +1,31 @@
+{
+  "variantName": "columns-inquiry",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "spacious",
+    "purpose": "contact-cta",
+    "imagePattern": "large",
+    "description": "Grey rounded bordered panel with shadow: small photo beside heading, paragraph with phone link and a blue button."
+  },
+  "contentPattern": {
+    "structure": "image | heading + paragraph (tel link) + button",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

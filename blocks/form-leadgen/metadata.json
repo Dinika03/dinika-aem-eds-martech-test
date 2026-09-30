@@ -1,0 +1,31 @@
+{
+  "variantName": "form-leadgen",
+  "baseBlock": "form",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light-blue",
+    "density": "compact",
+    "purpose": "lead-gen",
+    "imagePattern": "noimg",
+    "description": "Email capture: bold label, full-width email input, consent text beside a blue submit button; sits in a light-blue section."
+  },
+  "contentPattern": {
+    "structure": "label + email input + consent text + submit",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}
