@@ -1,0 +1,106 @@
+.form-leadgen {
+  --form-leadgen-blue: #1a5bb8;
+  --form-leadgen-blue-hover: #164c99;
+  --form-leadgen-text: #1d1d1d;
+  --form-leadgen-border: #c4c4c4;
+  --form-leadgen-error: #c8102e;
+
+  max-width: 640px;
+  color: var(--form-leadgen-text);
+}
+
+.form-leadgen form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-leadgen .form-leadgen-field label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form-leadgen .form-leadgen-field input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--form-leadgen-border);
+  border-radius: 2px;
+  background-color: #fff;
+  font: inherit;
+  font-size: 16px;
+}
+
+.form-leadgen .form-leadgen-field input:focus-visible {
+  outline: 2px solid var(--form-leadgen-blue);
+  outline-offset: 1px;
+}
+
+.form-leadgen .form-leadgen-field input[aria-invalid='true'] {
+  border-color: var(--form-leadgen-error);
+}
+
+.form-leadgen .form-leadgen-error {
+  margin: 8px 0 0;
+  color: var(--form-leadgen-error);
+  font-size: 14px;
+}
+
+.form-leadgen .form-leadgen-error:empty {
+  display: none;
+}
+
+.form-leadgen .form-leadgen-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.form-leadgen .form-leadgen-consent {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.form-leadgen .form-leadgen-consent p {
+  margin: 0;
+}
+
+.form-leadgen .form-leadgen-submit {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--form-leadgen-blue);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-leadgen .form-leadgen-submit:hover,
+.form-leadgen .form-leadgen-submit:focus-visible {
+  background-color: var(--form-leadgen-blue-hover);
+}
+
+.form-leadgen .form-leadgen-success {
+  padding: 16px;
+  border-left: 4px solid var(--form-leadgen-blue);
+  background-color: #fff;
+}
+
+.form-leadgen .form-leadgen-success[hidden] {
+  display: none;
+}
+
+@media (width >= 600px) {
+  .form-leadgen .form-leadgen-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}

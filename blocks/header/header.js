@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { isEdcPage, localizeSiteLinks } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -113,9 +114,9 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // The EDC test page uses its own EDC-branded nav; every other page keeps
+  // EDC pages use their own EDC-branded nav; every other page keeps
   // the default Remarkable nav.
-  const isEdc = window.location.pathname.includes('edc-test-page');
+  const isEdc = isEdcPage();
 
   // load nav as fragment — try /content/nav first (local + this content tree),
   // then fall back to the nav metadata path or /nav (DA/EDS production).
@@ -132,7 +133,10 @@ export default async function decorate(block) {
   block.textContent = '';
   const nav = document.createElement('nav');
   nav.id = 'nav';
-  if (isEdc) nav.classList.add('edc-nav');
+  if (isEdc) {
+    nav.classList.add('edc-nav');
+    localizeSiteLinks(fragment);
+  }
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
   const classes = ['brand', 'sections', 'tools'];

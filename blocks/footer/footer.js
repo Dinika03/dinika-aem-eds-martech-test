@@ -1,14 +1,15 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { isEdcPage, localizeSiteLinks } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // The EDC test page uses its own EDC-branded footer; every other page keeps
+  // EDC pages use their own EDC-branded footer; every other page keeps
   // the default Remarkable footer.
-  const isEdc = window.location.pathname.includes('edc-test-page');
+  const isEdc = isEdcPage();
 
   // load footer as fragment — try /content/footer first (local + this content
   // tree), then fall back to the footer metadata path or /footer (DA/EDS prod).
@@ -30,6 +31,7 @@ export default async function decorate(block) {
 
   if (isEdc) {
     footer.classList.add('edc-footer');
+    localizeSiteLinks(footer);
     // EDC layout: [0] newsletter signup, [1] link columns, [2] legal + social
     if (sections[0]) sections[0].classList.add('edc-footer-newsletter');
     if (sections[1]) sections[1].classList.add('edc-footer-links');

@@ -1,0 +1,106 @@
+.columns-inquiry {
+  --columns-inquiry-bg: #f2f2f2;
+  --columns-inquiry-border: #c4c4c4;
+  --columns-inquiry-text: #1d1d1d;
+  --columns-inquiry-blue: #1a5bb8;
+  --columns-inquiry-blue-hover: #164c99;
+}
+
+.columns-inquiry .columns-inquiry-row {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  border: 1px solid var(--columns-inquiry-border);
+  border-radius: 8px;
+  background-color: var(--columns-inquiry-bg);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.columns-inquiry .columns-inquiry-row + .columns-inquiry-row {
+  margin-top: 32px;
+}
+
+.columns-inquiry .columns-inquiry-image {
+  line-height: 0;
+}
+
+.columns-inquiry .columns-inquiry-image picture,
+.columns-inquiry .columns-inquiry-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.columns-inquiry h2,
+.columns-inquiry h3 {
+  margin: 0 0 16px;
+  color: var(--columns-inquiry-text);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.columns-inquiry .columns-inquiry-text p {
+  margin: 0 0 16px;
+  color: var(--columns-inquiry-text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.columns-inquiry .columns-inquiry-text p:last-child {
+  margin-bottom: 0;
+}
+
+.columns-inquiry .columns-inquiry-text a:any-link {
+  color: var(--columns-inquiry-blue);
+}
+
+.columns-inquiry .columns-inquiry-cta a:any-link {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 4px;
+  background-color: var(--columns-inquiry-blue);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.columns-inquiry .columns-inquiry-cta a:any-link:hover,
+.columns-inquiry .columns-inquiry-cta a:any-link:focus-visible {
+  background-color: var(--columns-inquiry-blue-hover);
+}
+
+@media (width >= 600px) {
+  .columns-inquiry .columns-inquiry-row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .columns-inquiry .columns-inquiry-image {
+    flex: 0 0 30%;
+  }
+
+  .columns-inquiry .columns-inquiry-text {
+    flex: 1 1 0;
+    padding-top: 8px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-inquiry .columns-inquiry-row {
+    padding: 16px 48px 16px 16px;
+  }
+
+  .columns-inquiry .columns-inquiry-image {
+    flex-basis: 200px;
+  }
+
+  .columns-inquiry h2,
+  .columns-inquiry h3 {
+    font-size: 24px;
+  }
+}

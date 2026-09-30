@@ -7,6 +7,12 @@
  *   Row 1: block name (auto)
  * Generated: 2026-07-24
  */
+// Cards whose destination has been migrated to this EDS site. The source card
+// anchors are empty and stripped before parsing, so match on the card heading.
+const MIGRATED_CARD_LINKS = [
+  { heading: /^trade credit insurance$/i, href: '/dinika-edc-credit-insurance-test' },
+];
+
 export default function parse(element, { document }) {
   // Select one container per card. Prefer list items; fall back to .card
   // only when there are no list items (avoids double-matching li + inner .card).
@@ -26,7 +32,16 @@ export default function parse(element, { document }) {
     const cardLink = cardEl.querySelector('a.card-link, a[href]');
 
     const bodyCell = [];
-    if (heading) {
+    const headingText = heading ? (heading.textContent || '').trim() : '';
+    const migrated = MIGRATED_CARD_LINKS.find((m) => m.heading.test(headingText));
+    if (heading && migrated) {
+      const link = document.createElement('a');
+      link.href = migrated.href;
+      link.textContent = headingText;
+      heading.textContent = '';
+      heading.append(link);
+      bodyCell.push(heading);
+    } else if (heading) {
       if (cardLink && cardLink.getAttribute('href')) {
         const link = document.createElement('a');
         link.href = cardLink.getAttribute('href');

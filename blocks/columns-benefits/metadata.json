@@ -1,0 +1,31 @@
+{
+  "variantName": "columns-benefits",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "https://www.edc.ca/en/solutions/insurance/credit-insurance.html",
+    "originPage": "EDC trade credit insurance",
+    "blockPosition": "upper"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "benefits",
+    "imagePattern": "noimg",
+    "description": "Plain 3-up text columns (H3 + paragraph), no borders, no links (EDC design)."
+  },
+  "contentPattern": {
+    "structure": "h3 + paragraph x3",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "usage": {
+    "pagesUsing": [
+      "/en/solutions/insurance/credit-insurance"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-30T00:00:00.000Z"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

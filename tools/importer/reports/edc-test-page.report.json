@@ -1,8 +1,8 @@
 {
   "status": "success",
-  "url": "https://www.edc.ca/",
+  "url": "http://localhost:8123/edc-home.html",
   "path": "edc-test-page",
-  "timestamp": "2026-07-24T20:18:41.959Z",
+  "timestamp": "2026-09-30T18:02:48.374Z",
   "title": "Export Development Canada (EDC)",
   "template": "edc-test-page",
   "blocks": [

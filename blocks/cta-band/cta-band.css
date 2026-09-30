@@ -63,3 +63,67 @@
     font-size: 30px;
   }
 }
+
+/* Rounded variant: inset EDC-blue band with a white circular arrow button */
+.cta-band-container .cta-band-wrapper:has(.cta-band.rounded) {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.cta-band.rounded {
+  background-color: #1a5bb8;
+  border-radius: 8px;
+  padding: 28px 24px;
+}
+
+.cta-band.rounded > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.cta-band.rounded > div > div::after {
+  content: '\2192';
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #1a5bb8;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cta-band.rounded h2,
+.cta-band.rounded h3 {
+  font-size: 20px;
+}
+
+.cta-band.rounded a,
+.cta-band.rounded a:hover {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  color: #fff;
+  font-weight: inherit;
+  white-space: normal;
+}
+
+.cta-band.rounded a::after {
+  content: none;
+}
+
+@media (width >= 900px) {
+  .cta-band.rounded {
+    padding: 32px 40px;
+  }
+
+  .cta-band.rounded h2,
+  .cta-band.rounded h3 {
+    font-size: 22px;
+  }
+}

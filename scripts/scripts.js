@@ -252,6 +252,28 @@ export function moveInstrumentation(from, to) {
 }
 
 /**
+ * Whether the current page is an EDC page (EDC nav/footer and EDC theme).
+ * @returns {boolean}
+ */
+export function isEdcPage() {
+  return ['edc-test-page', 'dinika-edc-credit-insurance-test']
+    .some((p) => window.location.pathname.includes(p));
+}
+
+/**
+ * Makes absolute links to this site's aem.page / aem.live hosts host-relative,
+ * so they resolve to aem.page on preview and aem.live on live.
+ * @param {Element} root element containing the links
+ */
+export function localizeSiteLinks(root) {
+  const siteHost = /^main--dinika-aem-eds-martech-test--dinika03\.aem\.(page|live)$/;
+  root.querySelectorAll('a[href]').forEach((a) => {
+    const url = new URL(a.href, window.location.href);
+    if (siteHost.test(url.hostname)) a.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+  });
+}
+
+/**
  * Applies section metadata: reads each `.section-metadata` block, converts its
  * key/value rows into section classes (e.g. style=accent → `.accent`) or data
  * attributes, then removes the block.
@@ -306,6 +328,7 @@ function pushPageData() {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  if (isEdcPage()) document.body.classList.add('edc-theme');
   
   //updated by dinika
   pushPageData();

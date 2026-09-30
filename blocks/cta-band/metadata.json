@@ -32,9 +32,10 @@
   },
   "usage": {
     "pagesUsing": [
-      "/edc-test-page"
+      "/edc-test-page",
+      "/en/solutions/insurance/credit-insurance"
     ],
-    "reuseCount": 1,
-    "lastUsed": "2026-07-24T19:59:03.028Z"
+    "reuseCount": 2,
+    "lastUsed": "2026-09-30T17:29:14.000Z"
   }
 }
