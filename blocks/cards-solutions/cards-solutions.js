@@ -48,7 +48,6 @@ export default function decorate(block) {
     link.className = 'cards-solutions-card-link';
     link.href = (authored && authored.getAttribute('href')) || migrated || CARD_LINK;
     if (authored) authored.replaceWith(...authored.childNodes);
-    link.href = CARD_LINK;
     link.addEventListener('click', () => pushCardClickDataLayer(link));
     while (li.firstChild) link.append(li.firstChild);
     li.append(link);
